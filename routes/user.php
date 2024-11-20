@@ -4,7 +4,8 @@ use App\Models\{
     SessionOne,
     SessionTwo,
     Title,
-    SessionSeven
+    SessionSeven,
+    SessionThree
 };
 use Illuminate\Support\Facades\Route;
 
@@ -22,6 +23,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     $sessionOne  = SessionOne::first();
     $sessionTwo  = SessionTwo::first();
+    $sessionThree = SessionThree::first();
     $titleSix = Title::where('type', 'six')->with([
         'images'
         => function ($query) {
@@ -36,6 +38,7 @@ Route::get('/', function () {
     return view('frontend.layouts.master', compact(
         'sessionOne',
         'sessionTwo',
+        'sessionThree',
         'titleSix',
         'sessionSeven'
     ));

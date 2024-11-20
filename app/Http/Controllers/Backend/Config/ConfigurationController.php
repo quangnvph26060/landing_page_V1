@@ -9,6 +9,7 @@ use App\Models\{
     SessionSeven,
     SessionTwo,
     SessionSix,
+    SessionThree,
     Title
 };
 use Illuminate\Http\Request;
@@ -249,6 +250,41 @@ class ConfigurationController extends Controller
 
         SessionTwo::updateOrCreate(['id' => 1], $credentials);
 
+        return response()->json(['status' => true, 'message' => 'Cập nhật thành công']);
+    }
+    public function sessionThree()
+    {
+        $title = 'Cấu hình session 3';
+        $session = SessionThree::first();
+        return view('backend.config.session-three', compact('title', 'session'));
+    }
+    public function postSessionThree($request)
+    {
+        $rules = [
+            'title' => 'required|string|max:255',
+            'blocks' => 'required|array|max:2',
+            'blocks.*.description' => 'required|string',
+            'blocks.*.image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'contents' => 'required|array|max:6',
+            'contents.*' => 'required|string',
+        ];
+        $data = $request->validate($rules);
+        if (!empty($data['blocks'])) {
+            foreach ($data['blocks'] as $index => $block) {
+                if (isset($block['image'])) {
+                    foreach (SessionThree::first()->blocks as $block) {
+                        deleteImage($block['image']);
+                    }
+                    $data['blocks'][$index]['image'] = saveImages($request, "blocks.{$index}.image", 'session-three', 613, 860);
+                } else {
+                    foreach (SessionThree::first()->blocks as $block) {
+                        $data['blocks'][$index]['image'] = $block['image'];
+                    }
+                }
+            }
+        }
+        $sessionThree = SessionThree::first();
+        $sessionThree->update($data);
         return response()->json(['status' => true, 'message' => 'Cập nhật thành công']);
     }
 
