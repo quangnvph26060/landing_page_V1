@@ -13,6 +13,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="description" content="{{$config->description_seo}}">
     <meta name="keywords" content="{{$config->keywords_seo}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <script src="{{ asset('frontend/js/custom.js') }}"></script>
 
@@ -33,6 +34,7 @@
 
 
     <!-- End Meta Pixel Code -->
+    {!! $config->script !!}
 </head>
 
 <body class="lazyload">
@@ -1130,10 +1132,7 @@
                 </div>
                 <div id="SHAPE489" class="ladi-element">
                     <div class="ladi-shape ladi-transition">
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                            width="100%" height="100%" viewBox="0 0 24 24" fill="rgba(255, 255, 255, 1.0)">
-                            <use xlink:href="#shape_nkqojXGAur"></use>
-                        </svg>
+                        <i class="fas fa-map-marker-alt" style="font-size: 20px; color: #ffffff"></i>
                     </div>
                 </div>
                 <div id="HEADLINE493" class="ladi-element">
@@ -1143,10 +1142,7 @@
                 </div>
                 <div id="SHAPE490" class="ladi-element">
                     <div class="ladi-shape ladi-transition">
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                            width="100%" height="100%" viewBox="0 0 24 24" fill="rgba(255, 255, 255, 1.0)">
-                            <use xlink:href="#shape_WBzzqNHWNA"></use>
-                        </svg>
+                        <i class="fas fa-phone" style="font-size: 20px; color: #ffffff"></i>
                     </div>
                 </div>
                 <div id="HEADLINE494" class="ladi-element">
@@ -1156,10 +1152,7 @@
                 </div>
                 <div id="SHAPE491" class="ladi-element">
                     <div class="ladi-shape ladi-transition">
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                            width="100%" height="100%" viewBox="0 0 24 24" fill="rgba(255, 255, 255, 1.0)">
-                            <use xlink:href="#shape_PllwVoqaPj"></use>
-                        </svg>
+                        <i class="fas fa-envelope" style="font-size: 20px; color: #ffffff"></i>
                     </div>
                 </div>
                 <div id="HEADLINE495" class="ladi-element">
@@ -1169,10 +1162,7 @@
                 </div>
                 <div id="SHAPE492" class="ladi-element">
                     <div class="ladi-shape ladi-transition">
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                            width="100%" height="100%" viewBox="0 0 24 24" fill="rgba(255, 255, 255, 1.0)">
-                            <use xlink:href="#shape_WicGdlJask"></use>
-                        </svg>
+                        <i class="fas fa-globe" style="font-size: 20px; color: #ffffff"></i>
                     </div>
                 </div>
                 <div id="HEADLINE496" class="ladi-element">
@@ -1182,10 +1172,7 @@
                 </div>
                 <div id="SHAPE493" class="ladi-element">
                     <div class="ladi-shape ladi-transition">
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                            width="100%" height="100%" viewBox="0 0 24 24" fill="rgba(255, 255, 255, 1.0)">
-                            <use xlink:href="#shape_nkqojXGAur"></use>
-                        </svg>
+                        <i class="fas fa-map-marker-alt" style="font-size: 20px; color: #ffffff"></i>
                     </div>
                 </div>
                 <div id="HEADLINE497" class="ladi-element">
@@ -1195,18 +1182,12 @@
                 </div>
                 <div id="SHAPE432" class="ladi-element">
                     <div class="ladi-shape ladi-transition">
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                            width="100%" height="100%" viewBox="0 0 24 24" fill="rgba(255, 255, 255, 1.0)">
-                            <use xlink:href="#shape_nkqojXGAur"></use>
-                        </svg>
+                        <i class="fas fa-phone" style="font-size: 20px; color: #ffffff"></i>
                     </div>
                 </div>
                 <div id="SHAPE435" class="ladi-element">
                     <div class="ladi-shape ladi-transition">
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                            width="100%" height="100%" viewBox="0 0 24 24" fill="rgba(255, 255, 255, 1.0)">
-                            <use xlink:href="#shape_WBzzqNHWNA"></use>
-                        </svg>
+                        <i class="fas fa-envelope" style="font-size: 20px; color: #ffffff"></i>
                     </div>
                 </div>
                 <div id="HEADLINE436" class="ladi-element">
@@ -1214,10 +1195,7 @@
                 </div>
                 <div id="SHAPE438" class="ladi-element">
                     <div class="ladi-shape ladi-transition">
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                            width="100%" height="100%" viewBox="0 0 24 24" fill="rgba(255, 255, 255, 1.0)">
-                            <use xlink:href="#shape_PllwVoqaPj"></use>
-                        </svg>
+                        <i class="fas fa-globe" style="font-size: 20px; color: #ffffff"></i>
                     </div>
                 </div>
                 <div id="HEADLINE439" class="ladi-element">
@@ -1225,14 +1203,7 @@
                         Email: {{ $branchs[1] ? $email[1] : '' }}
                     </p>
                 </div>
-                <div id="SHAPE441" class="ladi-element">
-                    <div class="ladi-shape ladi-transition">
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                            width="100%" height="100%" viewBox="0 0 24 24" fill="rgba(255, 255, 255, 1.0)">
-                            <use xlink:href="#shape_WicGdlJask"></use>
-                        </svg>
-                    </div>
-                </div>
+
                 <div id="HEADLINE442" class="ladi-element">
                     <p class="ladi-headline ladi-transition">
                         Website: {{ $branchs[1] ? $website[1] : '' }}
