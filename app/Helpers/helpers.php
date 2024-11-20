@@ -47,6 +47,42 @@ function saveImages($request, string $inputName, string $directory = 'images', $
 }
 
 
+function saveImagesWithoutResize($request, string $inputName, string $directory = 'images', $isArray = false)
+{
+    $paths = [];
+
+    // Kiểm tra xem có file không
+    if ($request->hasFile($inputName)) {
+        // Lấy tất cả các file hình ảnh
+        $images = $request->file($inputName);
+
+        if (!is_array($images)) {
+            $images = [$images]; // Đưa vào mảng nếu chỉ có 1 ảnh
+        }
+
+        foreach ($images as $key => $image) {
+            // Tạo tên file duy nhất
+            $filename = time() . uniqid() . '.' . $image->getClientOriginalExtension();
+
+            // Đọc nội dung file ảnh
+            $fileContents = file_get_contents($image->getPathname());
+
+            // Lưu hình ảnh vào storage mà không thay đổi kích thước
+            Storage::disk('public')->put($directory . '/' . $filename, $fileContents);
+
+            // Lưu đường dẫn vào mảng
+            $paths[$key] = $directory . '/' . $filename;
+        }
+
+        // Trả về danh sách các đường dẫn
+        return $isArray ? $paths : $paths[0];
+    }
+
+    return null;
+}
+
+
+
 function saveImage($request, string $inputName, string $directory = 'images')
 {
     if ($request->hasFile($inputName)) {

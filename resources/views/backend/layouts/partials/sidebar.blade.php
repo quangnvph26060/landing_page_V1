@@ -60,8 +60,13 @@
                     </a>
                 </li>
                 <li class="nav-item">
+
                     <a class="nav-link menu-link" href="{{ route('admin.configuration.session', 3) }}">
                         <i class="ri-settings-line"></i><span data-key="t-apps">Cấu Hình Session 3</span>
+
+                    <a class="nav-link menu-link" href="{{ route('admin.configuration.session', 5) }}">
+                        <i class="ri-settings-line"></i><span data-key="t-apps">Cấu Hình Session 5</span>
+
                     </a>
                 </li>
                 <li class="nav-item">
@@ -79,6 +84,24 @@
                         <i class="ri-settings-line"></i><span data-key="t-apps">Cấu Hình Session 7</span>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="{{ route('admin.configuration.session', 8) }}">
+                        <i class="ri-settings-line"></i><span data-key="t-apps">Cấu Hình Session 8</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="{{ route('admin.configuration.session', 9) }}">
+                        <i class="ri-settings-line"></i><span data-key="t-apps">Cấu Hình Session 9</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="{{ route('admin.contact') }}">
+                        
+                        <i class=" ri-chat-3-line"></i><span data-key="t-apps">Yêu Cầu Liên Hệ</span>
+                    </a>
+                </li>
+
 
                 <!-- end Configuration -->
             </ul>
