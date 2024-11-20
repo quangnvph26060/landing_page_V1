@@ -135,8 +135,8 @@
                         <div class="ladi-overlay"></div>
                     </div>
                 </div>
-                <div id="FORM-dautrang" data-config-id="66eba32484a6cc00123be634" class="ladi-element">
-                    <form autocomplete="off" method="post" class="ladi-form">
+                <div id="FORM-dautrang"  class="ladi-element">
+                    <form  action="{{ route('home') }}" method="post" class="ladi-form form-contact" >
                         <div id="BUTTON511" class="ladi-element">
                             <div class="ladi-button">
                                 <div class="ladi-button-background"></div>
@@ -151,7 +151,7 @@
                             <div class="ladi-form-item-container">
                                 <div class="ladi-form-item-background"></div>
                                 <div class="ladi-form-item">
-                                    <input autocomplete="off" tabindex="1" name="name" required
+                                    <input autocomplete="off" tabindex="1" name="name"
                                         class="ladi-form-control" type="text" placeholder="Họ và tên"
                                         value="" />
                                 </div>
@@ -161,7 +161,7 @@
                             <div class="ladi-form-item-container">
                                 <div class="ladi-form-item-background"></div>
                                 <div class="ladi-form-item">
-                                    <input autocomplete="off" tabindex="2" name="email" required
+                                    <input autocomplete="off" tabindex="2" name="email"
                                         class="ladi-form-control" type="email" placeholder="Email"
                                         value="" />
                                 </div>
@@ -171,7 +171,7 @@
                             <div class="ladi-form-item-container">
                                 <div class="ladi-form-item-background"></div>
                                 <div class="ladi-form-item">
-                                    <input autocomplete="off" tabindex="3" name="phone" required
+                                    <input autocomplete="off" tabindex="3" name="phone"
                                         class="ladi-form-control" type="tel" placeholder="Số điện thoại"
                                         pattern="(\+84|0){1}(9|8|7|5|3){1}[0-9]{8}" value="" />
                                 </div>
@@ -181,7 +181,7 @@
                             <div class="ladi-form-item-container">
                                 <div class="ladi-form-item-background"></div>
                                 <div class="ladi-form-item">
-                                    <input autocomplete="off" tabindex="4" name="address" required
+                                    <input autocomplete="off" tabindex="4" name="address"
                                         class="ladi-form-control" type="text" placeholder="Nơi ở hiện tại"
                                         value="" />
                                 </div>
@@ -191,13 +191,13 @@
                             <div class="ladi-form-item-container">
                                 <div class="ladi-form-item-background"></div>
                                 <div class="ladi-form-item">
-                                    <textarea autocomplete="off" tabindex="5" name="form_item475" required class="ladi-form-control"
+                                    <textarea autocomplete="off" tabindex="5" name="note"  class="ladi-form-control"
                                         placeholder="Tóm tắt nhu cầu"></textarea>
                                 </div>
                             </div>
                         </div>
                         <div id="BUTTON_TEXT511">
-                            <button type="submit" class="">ĐĂNG KÝ NGAY</button>
+                            <button type="submit">ĐĂNG KÝ NGAY</button>
                         </div>
                     </form>
                 </div>
@@ -726,7 +726,7 @@
                                         <div id="VIDEO486" class="ladi-element">
                                             <div class="ladi-video">
                                                 <iframe width="100%" height="301"
-                                                    src="https://www.youtube.com/embed/{{getYouTubeVideoId($link)}}"
+                                                    src="https://www.youtube.com/embed/{{ getYouTubeVideoId($link) }}"
                                                     title="YouTube video player" frameborder="0"
                                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                                     referrerpolicy="strict-origin-when-cross-origin"
@@ -993,101 +993,41 @@
             <div class="ladi-overlay"></div>
             <div class="ladi-container">
                 <div id="HEADLINE1065" class="ladi-element">
-                    <h3 class="ladi-headline">Báo Chí Nói Gì Về Green Academy</h3>
+                    <h3 class="ladi-headline">{{ $sessionEight->title }}</h3>
                 </div>
-                <div id="IMAGE1185" class="ladi-element">
-                    <div class="ladi-image">
-                        <div class="ladi-image-background"></div>
+                @php
+                    $id = ['IMAGE1185', 'IMAGE1186', 'IMAGE1187', 'IMAGE1188', 'IMAGE1189', 'IMAGE1190'];
+                @endphp
+
+                @foreach ($sessionEight->images as $key => $image)
+                    <div id="{{ $id[$key] }}" class="ladi-element">
+                        <div class="ladi-image">
+                            <div class="ladi-image-background"
+                                style="background-image: url('{{ showImage($image) }}');"></div>
+                        </div>
                     </div>
-                </div>
-                <div id="IMAGE1186" class="ladi-element">
-                    <div class="ladi-image">
-                        <div class="ladi-image-background"></div>
-                    </div>
-                </div>
-                <div id="IMAGE1187" class="ladi-element">
-                    <div class="ladi-image">
-                        <div class="ladi-image-background"></div>
-                    </div>
-                </div>
-                <div id="IMAGE1188" class="ladi-element">
-                    <div class="ladi-image">
-                        <div class="ladi-image-background"></div>
-                    </div>
-                </div>
-                <div id="IMAGE1189" class="ladi-element">
-                    <div class="ladi-image">
-                        <div class="ladi-image-background"></div>
-                    </div>
-                </div>
-                <div id="IMAGE1190" class="ladi-element">
-                    <div class="ladi-image">
-                        <div class="ladi-image-background"></div>
-                    </div>
-                </div>
+                @endforeach
                 <div id="CAROUSEL545" class="ladi-element">
                     <div class="ladi-carousel">
                         <div class="ladi-carousel-content">
-                            <div id="CAROUSEL_ITEM638" class="ladi-element">
-                                <div class="ladi-frame ladi-frame-bg ladi-transition">
-                                    <div class="ladi-frame-background"></div>
-                                    <div id="IMAGE1204" class="ladi-element">
-                                        <div class="ladi-image">
-                                            <div class="ladi-image-background"></div>
+
+
+
+                            @foreach ($titleEight->images as $index => $image)
+                                <div id="CAROUSEL_ITEM{{ $image->id }}" class="ladi-element" @style(['top: 0', 'left: ' . 960 * $index . 'px', 'width: 960px', 'height: 822px'])>
+                                    <div class="ladi-frame ladi-frame-bg ladi-transition">
+                                        <div class="ladi-frame-background"></div>
+                                        <div id="IMAGE1204" class="ladi-element">
+                                            <div class="ladi-image">
+                                                <div class="ladi-image-background"
+                                                    style="background-image: url('{{ showImage($image->image) }}');">
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div id="CAROUSEL_ITEM639" class="ladi-element">
-                                <div class="ladi-frame ladi-frame-bg ladi-transition">
-                                    <div class="ladi-frame-background"></div>
-                                    <div id="IMAGE1203" class="ladi-element">
-                                        <div class="ladi-image">
-                                            <div class="ladi-image-background"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="CAROUSEL_ITEM640" class="ladi-element">
-                                <div class="ladi-frame ladi-frame-bg ladi-transition">
-                                    <div class="ladi-frame-background"></div>
-                                    <div id="IMAGE1205" class="ladi-element">
-                                        <div class="ladi-image">
-                                            <div class="ladi-image-background"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="CAROUSEL_ITEM641" class="ladi-element">
-                                <div class="ladi-frame ladi-frame-bg ladi-transition">
-                                    <div class="ladi-frame-background"></div>
-                                    <div id="IMAGE1206" class="ladi-element">
-                                        <div class="ladi-image">
-                                            <div class="ladi-image-background"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="CAROUSEL_ITEM546" class="ladi-element">
-                                <div class="ladi-frame ladi-frame-bg ladi-transition">
-                                    <div class="ladi-frame-background"></div>
-                                    <div id="IMAGE1207" class="ladi-element">
-                                        <div class="ladi-image">
-                                            <div class="ladi-image-background"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="CAROUSEL_ITEM547" class="ladi-element">
-                                <div class="ladi-frame ladi-frame-bg ladi-transition">
-                                    <div class="ladi-frame-background"></div>
-                                    <div id="IMAGE1208" class="ladi-element">
-                                        <div class="ladi-image">
-                                            <div class="ladi-image-background"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
+
                         </div>
                         <div class="ladi-carousel-arrow ladi-carousel-arrow-left opacity-0"></div>
                         <div class="ladi-carousel-arrow ladi-carousel-arrow-right opacity-0"></div>
@@ -1109,8 +1049,8 @@
                         <div class="ladi-image-background"></div>
                     </div>
                 </div>
-                <div id="FORM-cuoitrang" data-config-id="66eba32484a6cc00123be634" class="ladi-element">
-                    <form autocomplete="off" method="post" class="ladi-form">
+                <div id="FORM-cuoitrang" class="ladi-element">
+                    <form method="post" action="{{ route('home') }}" class="ladi-form form-contact">
                         <div id="BUTTON508" class="ladi-element">
                             <div class="ladi-button">
                                 <div class="ladi-button-background"></div>
@@ -1127,7 +1067,7 @@
                             <div class="ladi-form-item-container">
                                 <div class="ladi-form-item-background"></div>
                                 <div class="ladi-form-item">
-                                    <input autocomplete="off" tabindex="1" name="name" required
+                                    <input autocomplete="off" tabindex="1" name="name"
                                         class="ladi-form-control" type="text" placeholder="Họ và tên"
                                         value="" />
                                 </div>
@@ -1137,7 +1077,7 @@
                             <div class="ladi-form-item-container">
                                 <div class="ladi-form-item-background"></div>
                                 <div class="ladi-form-item">
-                                    <input autocomplete="off" tabindex="2" name="email" required
+                                    <input autocomplete="off" tabindex="2" name="email"
                                         class="ladi-form-control" type="email" placeholder="Email"
                                         value="" />
                                 </div>
@@ -1147,7 +1087,7 @@
                             <div class="ladi-form-item-container">
                                 <div class="ladi-form-item-background"></div>
                                 <div class="ladi-form-item">
-                                    <input autocomplete="off" tabindex="3" name="phone" required
+                                    <input autocomplete="off" tabindex="3" name="phone"
                                         class="ladi-form-control" type="tel" placeholder="Số điện thoại"
                                         pattern="(\+84|0){1}(9|8|7|5|3){1}[0-9]{8}" value="" />
                                 </div>
@@ -1157,7 +1097,7 @@
                             <div class="ladi-form-item-container">
                                 <div class="ladi-form-item-background"></div>
                                 <div class="ladi-form-item">
-                                    <input autocomplete="off" tabindex="4" name="address" required
+                                    <input autocomplete="off" tabindex="4" name="address"
                                         class="ladi-form-control" type="text" placeholder="Nơi ở hiện tại"
                                         value="" />
                                 </div>
@@ -1167,20 +1107,20 @@
                             <div class="ladi-form-item-container">
                                 <div class="ladi-form-item-background"></div>
                                 <div class="ladi-form-item">
-                                    <textarea autocomplete="off" tabindex="5" name="form_item475" required class="ladi-form-control"
-                                        placeholder="Tóm tắt nhu cầu"></textarea>
+                                    <textarea autocomplete="off" tabindex="5" name="note" class="ladi-form-control" placeholder="Tóm tắt nhu cầu"></textarea>
                                 </div>
                             </div>
                         </div>
-                        <button type="submit" class="ladi-hidden"></button>
+                        <div id="BUTTON_TEXT508" class="ladi-element ladi-button-headline" style="top: 355px">
+                            <button type="submit" class="">ĐĂNG KÝ NGAY</button>
+                        </div>
+
                     </form>
                 </div>
                 <div id="HEADLINE1104" class="ladi-element">
                     <h3 class="ladi-headline">
-                        Học bổng du học lên đến
-                        <span style="font-weight: bold">800 triệu </span><br />Nhận
-                        <span style="font-weight: bold">100% học bổng</span> học tiếng
-                        Hàn<br />
+                        {!! $sessionNine->content !!}
+
                     </h3>
                 </div>
                 <div id="SHAPE623" class="ladi-element">
@@ -1199,7 +1139,7 @@
                         </svg>
                     </div>
                 </div>
-                <div id="HEADLINE1107" class="ladi-element">
+                {{-- <div id="HEADLINE1107" class="ladi-element">
                     <h3 class="ladi-headline">ƯU ĐÃI CÒN LẠI TRONG</h3>
                 </div>
                 <div id="COUNTDOWN468" class="ladi-element">
@@ -1221,21 +1161,19 @@
                             <div class="ladi-countdown-text"><span>00</span></div>
                         </div>
                     </div>
-                </div>
-                <div id="IMAGE1307" class="ladi-element">
+                </div> --}}
+                {{-- <div id="IMAGE1307" class="ladi-element">
                     <div class="ladi-image">
                         <div class="ladi-image-background"></div>
                     </div>
-                </div>
+                </div> --}}
                 <div id="HEADLINE1122" class="ladi-element">
-                    <h3 class="ladi-headline">TƯ VẤN TỪ CÔNG TY HÀN QUỐC</h3>
+                    <h3 class="ladi-headline">{{ $sessionNine->title }}</h3>
                 </div>
                 <div id="HEADLINE1123" class="ladi-element">
-                    <h3 class="ladi-headline">Chi phí<br /></h3>
+                    <h3 class="ladi-headline">{!! $sessionNine->extra !!}</h3>
                 </div>
-                <div id="HEADLINE1124" class="ladi-element">
-                    <h3 class="ladi-headline">15% so với thị trường</h3>
-                </div>
+
             </div>
         </div>
         <div id="SECTION428" class="ladi-section">
@@ -1549,7 +1487,7 @@
                             <div class="ladi-box ladi-transition"></div>
                         </div>
                         <div id="HEADLINE1024" class="ladi-element">
-                            <h3 class="ladi-headline">TƯ VẤN TỪ CÔNG TY HÀN QUỐC</h3>
+                            <h3 class="ladi-headline">{{ $sessionNine->title }}</h3>
                         </div>
                         <div id="HEADLINE1026" class="ladi-element">
                             <h3 class="ladi-headline">Ưu đãi<br />kết thúc sau:</h3>
@@ -1564,7 +1502,7 @@
                         </div>
                         <div id="HEADLINE1091" class="ladi-element">
                             <h3 class="ladi-headline">
-                                chi phí 15% so với thị trường<br />
+                                {!! $sessionNine->extra !!}
                             </h3>
                         </div>
                         <div id="HEADLINE1121" class="ladi-element">
@@ -1910,6 +1848,56 @@
         })();
     </script>
 
+    <link rel="stylesheet" href="{{ asset('backend/assets/libs/toastify-js/src/toastify.css') }}">
+    <script src="{{ asset('backend/assets/libs/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('backend/assets/libs/toastify-js/src/toastify.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            $('body').on('submit', '.form-contact', function(e) {
+                e.preventDefault();
+
+                $.ajax({
+                    url: $(this).attr('action'),
+                    method: "POST",
+                    data: new FormData(this),
+                    dataType: "JSON",
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    },
+                    success: function(response) {
+                        console.log(response);
+
+                        if (response.status) {
+
+                            Toastify({
+                                text: response.message,
+                                duration: 3000,
+                                close: true,
+                                gravity: "top",
+                                position: "right",
+                                backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+                            }).showToast();
+
+                            $('.form-contact')[0].reset();
+                        } else {
+
+                            Toastify({
+                                text: response.message,
+                                duration: 3000,
+                                close: true,
+                                gravity: "top",
+                                position: "right",
+                                backgroundColor: "linear-gradient(to right, #ff5f6d, #ffc371)",
+                            }).showToast();
+                        }
+                    }
+                });
+            })
+        })
+    </script>
 </body>
 
 </html>

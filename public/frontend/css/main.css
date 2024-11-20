@@ -1859,7 +1859,6 @@ a:link {
 
 @media (min-width: 768px) {
     #SHAPE519,
-    #HEADLINE1065,
     #IMAGE1211,
     #IMAGE1227,
     #IMAGE1228,
@@ -5134,7 +5133,7 @@ body {
         background-image: url("https://w.ladicdn.com/s1150x1150/5daeae0d3ec8da4ea405b05d/bao-6-20240916082809-pvejm.png");
     }
     #SECTION-Form {
-        height: 514.862px;
+        height: 464.862px;
     }
     #SECTION-Form > .ladi-overlay {
         background-image: url("https://w.ladicdn.com/s700x1200/5daeae0d3ec8da4ea405b05d/bg-copy-20240726064029-y-zio.png");
@@ -5142,7 +5141,7 @@ body {
     }
     #BOX1002 {
         width: 960px;
-        height: 514.5px;
+        height: 464.5px;
         top: 0.362px;
         left: 120px;
     }
@@ -5277,7 +5276,7 @@ body {
         color: rgb(209, 255, 1);
     }
     #HEADLINE1123 {
-        width: 97px;
+        width: 479px;
         top: 121.066px;
         left: 163.511px;
     }
@@ -7681,9 +7680,9 @@ body {
     }
 }
 
-#BUTTON_TEXT511 button {
+#BUTTON_TEXT511 button, #BUTTON_TEXT508 button {
     width: 100%;
-    padding: 5px 0;
+    padding: 10px 0;
     border-radius: 20px;
     background-color: #c70f31;
     color: #ffffff;
