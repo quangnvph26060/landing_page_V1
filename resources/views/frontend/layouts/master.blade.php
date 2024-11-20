@@ -4,19 +4,21 @@
 <head>
     <meta charset="UTF-8" />
 
-    <title>Du Học Hàn Quốc - Green Academy</title>
+    <title>{{$config->title_seo}}</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="{{$config->description_seo}}">
+    <meta name="keywords" content="{{$config->keywords_seo}}">
 
     <script src="{{ asset('frontend/js/custom.js') }}"></script>
 
 
     <link rel="shortcut icon"
-        href="https://static.ladipage.net/5daeae0d3ec8da4ea405b05d/favicon-20240520072120-4njxd.png" />
+        href="{{ showImage($config->favicon) }}" />
 
     <style>
         html,
