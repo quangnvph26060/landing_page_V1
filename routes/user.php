@@ -6,6 +6,7 @@ use App\Models\{
     SessionTwo,
     Title,
     SessionSeven,
+    SessionThree
     SessionEight,
     SessionNine
 };
@@ -28,6 +29,7 @@ use Illuminate\Support\Facades\Validator;
 Route::get('/', function () {
     $sessionOne  = SessionOne::first();
     $sessionTwo  = SessionTwo::first();
+    $sessionThree = SessionThree::first();
     $titleSix = Title::where('type', 'six')->with([
         'images'
         => function ($query) {
@@ -60,6 +62,7 @@ Route::get('/', function () {
     return view('frontend.layouts.master', compact(
         'sessionOne',
         'sessionTwo',
+        'sessionThree',
         'titleSix',
         'sessionSeven',
         'sessionEight',
