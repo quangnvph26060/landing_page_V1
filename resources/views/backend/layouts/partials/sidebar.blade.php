@@ -85,6 +85,13 @@
                     </a>
                 </li>
 
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="{{ route('admin.contact') }}">
+                        
+                        <i class=" ri-chat-3-line"></i><span data-key="t-apps">Yêu Cầu Liên Hệ</span>
+                    </a>
+                </li>
+
 
                 <!-- end Configuration -->
             </ul>

@@ -26,6 +26,8 @@ route::prefix('admin')->name('admin.')->group(function () {
         route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
         route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
+        route::get('contact', [DashboardController::class, 'contact'])->name('contact');
+
         route::prefix('configuration')->controller('App\Http\Controllers\Backend\Config\ConfigurationController')->name('configuration.')->group(function () {
             route::get('/', 'configuration');
             route::post('/', 'save');
