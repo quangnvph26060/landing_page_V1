@@ -135,8 +135,8 @@
                         <div class="ladi-overlay"></div>
                     </div>
                 </div>
-                <div id="FORM-dautrang"  class="ladi-element">
-                    <form  action="{{ route('home') }}" method="post" class="ladi-form form-contact" >
+                <div id="FORM-dautrang" class="ladi-element">
+                    <form action="{{ route('home') }}" method="post" class="ladi-form form-contact">
                         <div id="BUTTON511" class="ladi-element">
                             <div class="ladi-button">
                                 <div class="ladi-button-background"></div>
@@ -191,8 +191,7 @@
                             <div class="ladi-form-item-container">
                                 <div class="ladi-form-item-background"></div>
                                 <div class="ladi-form-item">
-                                    <textarea autocomplete="off" tabindex="5" name="note"  class="ladi-form-control"
-                                        placeholder="Tóm tắt nhu cầu"></textarea>
+                                    <textarea autocomplete="off" tabindex="5" name="note" class="ladi-form-control" placeholder="Tóm tắt nhu cầu"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -626,86 +625,32 @@
                 <div id="CAROUSEL548" class="ladi-element">
                     <div class="ladi-carousel">
                         <div class="ladi-carousel-content">
-                            <div id="CAROUSEL_ITEM644" class="ladi-element">
-                                <div class="ladi-frame ladi-frame-bg ladi-transition">
-                                    <div class="ladi-frame-background"></div>
-                                    <div id="IMAGE1243" class="ladi-element">
-                                        <div class="ladi-image ladi-transition">
-                                            <div class="ladi-image-background"></div>
+
+
+
+                            @foreach ($titles['five_dots_one']->images as $index => $fo)
+                                <div id="CAROUSEL_ITEM{{ $fo->id }}" class="ladi-element" @style(['top: 0', 'left: ' . 500 * $index . 'px', 'width: 500px', 'height: 496px'])>
+                                    <div class="ladi-frame ladi-frame-bg ladi-transition">
+                                        <div class="ladi-frame-background"></div>
+                                        <div id="IMAGE1243" class="ladi-element">
+                                            <div class="ladi-image ladi-transition">
+                                                <div class="ladi-image-background" @style(['background-image: url(' . showImage($fo->image) . ')'])></div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div id="CAROUSEL_ITEM645" class="ladi-element">
-                                <div class="ladi-frame ladi-frame-bg ladi-transition">
-                                    <div class="ladi-frame-background"></div>
-                                    <div id="IMAGE1244" class="ladi-element">
-                                        <div class="ladi-image ladi-transition">
-                                            <div class="ladi-image-background"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="CAROUSEL_ITEM646" class="ladi-element">
-                                <div class="ladi-frame ladi-frame-bg ladi-transition">
-                                    <div class="ladi-frame-background"></div>
-                                    <div id="IMAGE1245" class="ladi-element">
-                                        <div class="ladi-image ladi-transition">
-                                            <div class="ladi-image-background"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="CAROUSEL_ITEM647" class="ladi-element">
-                                <div class="ladi-frame ladi-frame-bg ladi-transition">
-                                    <div class="ladi-frame-background"></div>
-                                    <div id="IMAGE1246" class="ladi-element">
-                                        <div class="ladi-image ladi-transition">
-                                            <div class="ladi-image-background"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="CAROUSEL_ITEM549" class="ladi-element">
-                                <div class="ladi-frame ladi-frame-bg ladi-transition">
-                                    <div class="ladi-frame-background"></div>
-                                    <div id="IMAGE1247" class="ladi-element">
-                                        <div class="ladi-image ladi-transition">
-                                            <div class="ladi-image-background"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="CAROUSEL_ITEM550" class="ladi-element">
-                                <div class="ladi-frame ladi-frame-bg ladi-transition">
-                                    <div class="ladi-frame-background"></div>
-                                    <div id="IMAGE1248" class="ladi-element">
-                                        <div class="ladi-image ladi-transition">
-                                            <div class="ladi-image-background"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="CAROUSEL_ITEM551" class="ladi-element">
-                                <div class="ladi-frame ladi-frame-bg ladi-transition">
-                                    <div class="ladi-frame-background"></div>
-                                    <div id="IMAGE1249" class="ladi-element">
-                                        <div class="ladi-image ladi-transition">
-                                            <div class="ladi-image-background"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="CAROUSEL_ITEM552" class="ladi-element">
-                                <div class="ladi-frame ladi-frame-bg ladi-transition">
-                                    <div class="ladi-frame-background"></div>
-                                    <div id="IMAGE1250" class="ladi-element">
-                                        <div class="ladi-image ladi-transition">
-                                            <div class="ladi-image-background"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+
+                                <style>
+                                    @media screen and (max-width: 768px) {
+                                        #CAROUSEL_ITEM{{ $fo->id }} {
+                                            left: {{ 420 * $index }}px !important;
+                                            width: 420px !important;
+                                            height: 430px !important;
+                                        }
+                                    }
+                                </style>
+                            @endforeach
+
                         </div>
                         <div class="ladi-carousel-arrow ladi-carousel-arrow-left opacity-0"></div>
                         <div class="ladi-carousel-arrow ladi-carousel-arrow-right opacity-0"></div>
@@ -735,6 +680,15 @@
                                         </div>
                                     </div>
                                 </div>
+                                <style>
+                                    @media screen and (max-width: 768px) {
+                                        #CAROUSEL_ITEM{{ $index }} {
+                                            left: {{ 420 * $index }}px !important;
+                                            width: 420px !important;
+                                            height: 246px !important;
+                                        }
+                                    }
+                                </style>
                             @endforeach
 
 
@@ -744,111 +698,25 @@
                     </div>
                 </div>
                 <div id="HEADLINE1092" class="ladi-element">
-                    <h3 class="ladi-headline">Du học sinh từ Green Academy</h3>
+                    <h3 class="ladi-headline">{{ $titles['five_dots_one']->title }}</h3>
                 </div>
                 <div id="CAROUSEL564" class="ladi-element">
                     <div class="ladi-carousel">
                         <div class="ladi-carousel-content">
-                            <div id="CAROUSEL_ITEM686" class="ladi-element">
-                                <div class="ladi-frame ladi-frame-bg ladi-transition">
-                                    <div class="ladi-frame-background"></div>
-                                    <div id="IMAGE1286" class="ladi-element">
-                                        <div class="ladi-image ladi-transition">
-                                            <div class="ladi-image-background"></div>
+
+                            @foreach ($titles['five_dots_two']->images as $index => $ft)
+                                <div id="CAROUSEL_ITEM{{ $ft->id }}" class="ladi-element" @style(['top: 0', 'left: ' . 420 * $index . 'px', 'width: 420px', 'height: 488px'])>
+                                    <div class="ladi-frame ladi-frame-bg ladi-transition">
+                                        <div class="ladi-frame-background"></div>
+                                        <div id="IMAGE1286" class="ladi-element">
+                                            <div class="ladi-image ladi-transition">
+                                                <div class="ladi-image-background" @style(['background-image: url(' . showImage($ft->image) . ')'])></div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div id="CAROUSEL_ITEM690" class="ladi-element">
-                                <div class="ladi-frame ladi-frame-bg ladi-transition">
-                                    <div class="ladi-frame-background"></div>
-                                    <div id="IMAGE1290" class="ladi-element">
-                                        <div class="ladi-image ladi-transition">
-                                            <div class="ladi-image-background"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="CAROUSEL_ITEM688" class="ladi-element">
-                                <div class="ladi-frame ladi-frame-bg ladi-transition">
-                                    <div class="ladi-frame-background"></div>
-                                    <div id="IMAGE1288" class="ladi-element">
-                                        <div class="ladi-image ladi-transition">
-                                            <div class="ladi-image-background"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="CAROUSEL_ITEM687" class="ladi-element">
-                                <div class="ladi-frame ladi-frame-bg ladi-transition">
-                                    <div class="ladi-frame-background"></div>
-                                    <div id="IMAGE1287" class="ladi-element">
-                                        <div class="ladi-image ladi-transition">
-                                            <div class="ladi-image-background"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="CAROUSEL_ITEM689" class="ladi-element">
-                                <div class="ladi-frame ladi-frame-bg ladi-transition">
-                                    <div class="ladi-frame-background"></div>
-                                    <div id="IMAGE1289" class="ladi-element">
-                                        <div class="ladi-image ladi-transition">
-                                            <div class="ladi-image-background"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="CAROUSEL_ITEM691" class="ladi-element">
-                                <div class="ladi-frame ladi-frame-bg ladi-transition">
-                                    <div class="ladi-frame-background"></div>
-                                    <div id="IMAGE1291" class="ladi-element">
-                                        <div class="ladi-image ladi-transition">
-                                            <div class="ladi-image-background"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="CAROUSEL_ITEM692" class="ladi-element">
-                                <div class="ladi-frame ladi-frame-bg ladi-transition">
-                                    <div class="ladi-frame-background"></div>
-                                    <div id="IMAGE1292" class="ladi-element">
-                                        <div class="ladi-image ladi-transition">
-                                            <div class="ladi-image-background"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="CAROUSEL_ITEM693" class="ladi-element">
-                                <div class="ladi-frame ladi-frame-bg ladi-transition">
-                                    <div class="ladi-frame-background"></div>
-                                    <div id="IMAGE1293" class="ladi-element">
-                                        <div class="ladi-image ladi-transition">
-                                            <div class="ladi-image-background"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="CAROUSEL_ITEM565" class="ladi-element">
-                                <div class="ladi-frame ladi-frame-bg ladi-transition">
-                                    <div class="ladi-frame-background"></div>
-                                    <div id="IMAGE1294" class="ladi-element">
-                                        <div class="ladi-image ladi-transition">
-                                            <div class="ladi-image-background"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="CAROUSEL_ITEM566" class="ladi-element">
-                                <div class="ladi-frame ladi-frame-bg ladi-transition">
-                                    <div class="ladi-frame-background"></div>
-                                    <div id="IMAGE1295" class="ladi-element">
-                                        <div class="ladi-image ladi-transition">
-                                            <div class="ladi-image-background"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+
+                            @endforeach
                         </div>
                         <div class="ladi-carousel-arrow ladi-carousel-arrow-left opacity-0"></div>
                         <div class="ladi-carousel-arrow ladi-carousel-arrow-right opacity-0"></div>
@@ -881,6 +749,15 @@
                                         </div>
                                     </div>
                                 </div>
+                                <style>
+                                    @media (max-width: 767px) {
+                                        #CAROUSEL_ITEM{{ $item->id }} {
+                                            left: {{ 420 * $index }}px !important;
+                                            width: 420px;
+                                            height: 251px;
+                                        }
+                                    }
+                                </style>
                             @endforeach
                         </div>
 

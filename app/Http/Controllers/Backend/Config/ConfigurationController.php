@@ -254,6 +254,90 @@ class ConfigurationController extends Controller
         return response()->json(['status' => true, 'message' => 'Cập nhật thành công']);
     }
 
+    public function sessionFive()
+    {
+        $title = 'Cấu hình session 5';
+
+        // Loại bỏ lặp logic, sử dụng array để xử lý nhiều loại
+        $types = ['five_dots_one', 'five_dots_two'];
+        $titles = [];
+
+        foreach ($types as $type) {
+            $titles[$type] = Title::where('type', $type)
+                ->with(['images' => function ($query) {
+                    $query->orderBy('id', 'desc');
+                }])
+                ->first();
+        }
+        // dd($titles);
+
+        // Truyền dữ liệu vào view
+        return view('backend.config.session-five', [
+            'title' => $title,
+            'title1' => $titles['five_dots_one'],
+            'title2' => $titles['five_dots_two'],
+        ]);
+    }
+
+
+    public function postSessionFive($request)
+    {
+        if ($request->has('id')) {
+            $img = Image::find($request->id);
+            deleteImage($img->image);
+            $img->delete();
+
+            return response()->json(['status' => true, 'message' => 'Xóa thành công']);
+        }
+
+        $data = Validator::make(
+            $request->all(),
+            [
+                'title' => 'required',
+                'file' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            ],
+            [
+                'title' => 'Tiêu đề',
+                'file' => 'Hình ảnh',
+            ]
+        );
+
+        if ($data->fails()) {
+            return response()->json(['errors' => $data->errors(), 'status' => false, 'message' => 'Dữ liệu không hợp lệ']);
+        }
+
+        $credentials = $data->validated();
+
+        $credentials['type'] = $request->type ?? 'five_dots_one';
+
+        $title =  Title::updateOrCreate(['type' => $credentials['type']], $credentials);
+
+        if ($request->hasFile('file')) {
+
+            if($request->type == 'five_dots_one') {
+                $width = 1333;
+                $height = 750;
+            }else {
+                $width = 650;
+                $height = 867;
+            }
+
+            $img = Image::create([
+                'title_id' => $title->id,
+                'image' => saveImages($request, 'file', 'file', $width, $height),
+            ]);
+
+            return response()->json([
+                'message' => 'success',
+                'image' =>  showImage($img->image),
+                'size' =>  getSize($img->image),
+                'id' => $img->id,
+            ], 200);
+        }
+
+        return response()->json(['status' => true, 'message' => 'Cập nhật thành công']);
+    }
+
     public function sessionSix()
     {
         $title = 'Cấu hình session 6';

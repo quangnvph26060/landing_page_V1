@@ -60,6 +60,11 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link menu-link" href="{{ route('admin.configuration.session', 5) }}">
+                        <i class="ri-settings-line"></i><span data-key="t-apps">Cấu Hình Session 5</span>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link menu-link" href="{{ route('admin.configuration.session', 6) }}">
                         <i class="ri-settings-line"></i><span data-key="t-apps">Cấu Hình Session 6</span>
                     </a>
@@ -79,6 +84,7 @@
                         <i class="ri-settings-line"></i><span data-key="t-apps">Cấu Hình Session 9</span>
                     </a>
                 </li>
+
 
                 <!-- end Configuration -->
             </ul>

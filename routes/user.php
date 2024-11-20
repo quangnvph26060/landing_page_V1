@@ -44,6 +44,16 @@ Route::get('/', function () {
         }
     ])->first();
     $sessionNine = SessionNine::find(1);
+    $types = ['five_dots_one', 'five_dots_two'];
+    $titles = [];
+
+    foreach ($types as $type) {
+        $titles[$type] = Title::where('type', $type)
+            ->with(['images' => function ($query) {
+                $query->orderBy('id', 'desc');
+            }])
+            ->first();
+    }
 
 
 
@@ -54,7 +64,8 @@ Route::get('/', function () {
         'sessionSeven',
         'sessionEight',
         'titleEight',
-        'sessionNine'
+        'sessionNine',
+        'titles'
     ));
 })->name('home');
 
