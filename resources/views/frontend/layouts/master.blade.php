@@ -378,10 +378,7 @@
                 </div>
                 <div id="HEADLINE1028" class="ladi-element">
                     <h3 class="ladi-headline">
-                        {{-- <span style="color: rgb(4, 55, 119)">Vì sao</span>
-                        <span style="color: rgb(172, 6, 37)">Green Academy</span>&nbsp;<span
-                            style="color: rgb(4, 55, 119)">lại là lựa chọn tốt nhất?</span><br /> --}}
-                        {{ $sessionThree->title }}
+                            {!! $sessionThree->title  !!}
                     </h3>
                 </div>
                 <div data-action="true" id="BUTTON507" class="ladi-element">
@@ -400,7 +397,7 @@
                             </div>
                             <div id="HEADLINE1110" class="ladi-element">
                                 <h3 class="ladi-headline">
-                                    {{ $item }}<br />
+                                    {{ $item }}
                                 </h3>
                             </div>
                         </div>
@@ -488,13 +485,13 @@
                         </div>
                     </div>
                 </div>
-                <div id="HEADLINE1163" class="ladi-element">
+                {{-- <div id="HEADLINE1163" class="ladi-element">
                     <h3 class="ladi-headline">
                         - Chi phí cố định: Học phí + ký túc xá tại Hàn Quốc<br />- Chi phí
                         hồ sơ tại Việt Nam (thấp hơn 15% so với các trung tâm khác)<br />-
                         Cam kết không thu cọc chống trốn (vi bằng)<br />
                     </h3>
-                </div>
+                </div> --}}
                 <div id="IMAGE1337" class="ladi-element">
                     <div class="ladi-image">
                         <div class="ladi-image-background"></div>
@@ -515,7 +512,15 @@
                 </div>
                 <div id="HEADLINE1161" class="ladi-element">
                     <h3 class="ladi-headline">
-                        Tổng chi phí cạnh tranh<br />so với thị trường<br />
+                        {{-- Tổng chi phí cạnh tranh<br />so với thị trường<br />
+
+                        CHỈ TỪ 130 TRIỆU <br/>
+
+                        - Chi phí cố định: Học phí + ký túc xá tại Hàn Quốc<br />- Chi phí
+                        hồ sơ tại Việt Nam (thấp hơn 15% so với các trung tâm khác)<br />-
+                        Cam kết không thu cọc chống trốn (vi bằng)<br /> --}}
+
+                        {!!$sessionThree->blocks[0]['description'] !!}
                     </h3>
                 </div>
                 <div id="SHAPE642" class="ladi-element">
@@ -528,26 +533,12 @@
                 </div>
                 <div id="HEADLINE1162" class="ladi-element">
                     <h3 class="ladi-headline">
-                        Tổng thu nhập một năm từ vừa học vừa làm thêm thông qua giới thiệu
-                        từ Green<br />
+                        {!!$sessionThree->blocks[1]['description'] !!}
                     </h3>
                 </div>
-                <div id="BOX1042" class="ladi-element">
-                    <div class="ladi-box ladi-transition"></div>
-                </div>
-                <div id="BOX1043" class="ladi-element">
-                    <div class="ladi-box ladi-transition"></div>
-                </div>
-                <div id="HEADLINE1165" class="ladi-element">
-                    <h3 class="ladi-headline">
-                        <span style="font-style: italic; font-weight: bold">CHỈ TỪ 130 TRIỆU</span><br />
-                    </h3>
-                </div>
-                <div id="HEADLINE1166" class="ladi-element">
-                    <h3 class="ladi-headline">
-                        <span style="font-style: italic; font-weight: bold">LÊN ĐẾN 550 TRIỆU</span><br />
-                    </h3>
-                </div>
+
+
+
                 <div id="GROUP1226" class="ladi-element">
                     <div class="ladi-group">
                         <div id="BOX1044" class="ladi-element">
@@ -555,8 +546,10 @@
                         </div>
                         <div id="IMAGE1340" class="ladi-element">
                             <div class="ladi-image">
-                                <div class="ladi-image-background"></div>
+                                <div class="ladi-image-background"  @style('background-image: url('. showImage($config->favicon).' )')></div>
                             </div>
+                            {{-- @style('background-image: url({{ showImage()}})" --}}
+
                         </div>
                     </div>
                 </div>
@@ -567,7 +560,7 @@
                         </div>
                         <div id="IMAGE1341" class="ladi-element">
                             <div class="ladi-image">
-                                <div class="ladi-image-background"></div>
+                                <div class="ladi-image-background" @style('background-image: url('. showImage($config->favicon).' )')></div>
                             </div>
                         </div>
                     </div>

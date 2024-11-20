@@ -293,7 +293,7 @@ class ConfigurationController extends Controller
     public function postSessionThree($request)
     {
         $rules = [
-            'title' => 'required|string|max:255',
+            'title' => 'required|string',
             'blocks' => 'required|array|max:2',
             'blocks.*.description' => 'required|string',
             'blocks.*.image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',

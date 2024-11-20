@@ -14,8 +14,9 @@
                     <div class="card-body">
                         <div class="form-group">
                             <label for="title">Tiêu đề</label>
-                            <input type="text" name="title" id="title"
-                                value="{{ old('title', $session->title ?? '') }}" class="form-control">
+                            {{-- <input type="text" name="title" id="title"
+                                value="{{ old('title', $session->title ?? '') }}" class="form-control"> --}}
+                                <textarea name="title" id="title" class="form-control" cols="30" rows="10">{!!$session->title!!}</textarea>
                             <small></small>
                         </div>
                     </div>
@@ -91,6 +92,7 @@
     <script src="https://cdn.ckeditor.com/4.19.1/standard-all/ckeditor.js"></script>
 
     <script>
+        ckeditor('title', 100)
         ckeditor('content_0')
         ckeditor('content_1')
 
