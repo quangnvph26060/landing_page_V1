@@ -3,10 +3,17 @@
 namespace App\Http\Controllers\Backend\Config;
 
 use App\Models\{
-    Config, SessionOne
+    Config,
+    Image,
+    SessionOne,
+    SessionSeven,
+    SessionTwo,
+    SessionSix,
+    Title
 };
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class ConfigurationController extends Controller
@@ -186,6 +193,160 @@ class ConfigurationController extends Controller
         }
 
         SessionOne::updateOrCreate(['id' => 1], $credentials);
+
+        return response()->json(['status' => true, 'message' => 'Cập nhật thành công']);
+    }
+
+    public function sessionTwo()
+    {
+        $title = 'Cấu hình session 2';
+        $session  = SessionTwo::first();
+        return view('backend.config.session-two', compact('title', 'session'));
+    }
+
+    public function postSessionTwo($request)
+    {
+        $data = Validator::make(
+            $request->all(),
+            [
+                'titles' => 'required',
+                'titles.*' => 'required',
+                'contents' => 'required',
+                'contents.*' => 'required',
+                'images' => 'nullable',
+                'images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'descriptions' => 'required',
+                'descriptions.*' => 'required',
+            ],
+            __('request.messages'),
+            [
+                'titles' => 'Tiêu đề',
+                'titles.*' => 'Tiêu đề',
+                'contents' => 'Nội dung',
+                'contents.*' => 'Nội dung',
+                'images' => 'Hình ảnh',
+                'images.*' => 'Hình ảnh',
+                'descriptions' => 'Mô tả',
+                'descriptions.*' => 'Mô tả',
+            ]
+        );
+
+        if ($data->fails()) {
+            return response()->json(['errors' => $data->errors(), 'status' => false, 'message' => 'Dữ liệu không hợp lệ']);
+        }
+
+        $credentials = $data->validated();
+        $session  = SessionTwo::find(1);
+        if ($request->hasFile('images')) {
+            $credentials['images'] = $session->images;
+            $images = saveImages($request, 'images', 'images', 825, 550, true);
+
+            foreach ($images as $key => $image) {
+                deleteImage($session->images[$key]);
+                $credentials['images'][$key] = $image;
+            }
+        }
+
+        SessionTwo::updateOrCreate(['id' => 1], $credentials);
+
+        return response()->json(['status' => true, 'message' => 'Cập nhật thành công']);
+    }
+
+    public function sessionSix()
+    {
+        $title = 'Cấu hình session 6';
+        $titles  = Title::where('type', 'six')->with([
+            'images'
+            => function ($query) {
+                $query->orderBy('id', 'desc');
+            }
+        ])->first();
+
+        return view('backend.config.session-six', compact('title', 'titles'));
+    }
+
+    public function postSessionSix($request)
+    {
+        if ($request->has('id')) {
+            $img = Image::find($request->id);
+            deleteImage($img->image);
+            $img->delete();
+
+            return response()->json(['status' => true, 'message' => 'Xóa thành công']);
+        }
+
+        $data = Validator::make(
+            $request->all(),
+            [
+                'title' => 'required',
+                'file' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            ],
+            [
+                'title' => 'Tiêu đề',
+                'file' => 'Hình ảnh',
+            ]
+        );
+
+        if ($data->fails()) {
+            return response()->json(['errors' => $data->errors(), 'status' => false, 'message' => 'Dữ liệu không hợp lệ']);
+        }
+
+        $credentials = $data->validated();
+
+        $credentials['type'] = 'six';
+
+
+        $title =  Title::updateOrCreate(['type' => 'six'], $credentials);
+
+        if ($request->hasFile('file')) {
+            $img = Image::create([
+                'title_id' => $title->id,
+                'image' => saveImages($request, 'file', 'file', 1155, 650),
+            ]);
+
+            return response()->json([
+                'message' => 'success',
+                'image' =>  showImage($img->image),
+                'size' =>  getSize($img->image),
+                'id' => $img->id,
+            ], 200);
+        }
+
+        return response()->json(['status' => true, 'message' => 'Cập nhật thành công']);
+    }
+
+    public function sessionSeven()
+    {
+        $title = 'Cấu hình session 7';
+        $session  = SessionSeven::find(1);
+
+        return view('backend.config.session-seven', compact('title', 'session'));
+    }
+
+    public function postSessionSeven($request)
+    {
+
+        $data = Validator::make(
+            $request->all(),
+            [
+                'title' => 'required',
+                'links' => 'required',
+                'links.*' => 'required',
+            ],
+            __('request.messages'),
+            [
+                'title' => 'Tiêu đề',
+                'links' => 'Link video',
+            ]
+        );
+
+        if ($data->fails()) {
+            return response()->json(['errors' => $data->errors(), 'status' => false, 'message' => 'Dữ liệu không hợp lệ']);
+        }
+
+        $credentials = $data->validated();
+
+        SessionSeven::updateOrCreate(['id' => 1], $credentials);
 
         return response()->json(['status' => true, 'message' => 'Cập nhật thành công']);
     }

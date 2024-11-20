@@ -14,6 +14,7 @@
 
     <script src="{{ asset('frontend/js/custom.js') }}"></script>
 
+
     <link rel="shortcut icon"
         href="https://static.ladipage.net/5daeae0d3ec8da4ea405b05d/favicon-20240520072120-4njxd.png" />
 
@@ -56,10 +57,19 @@
                         </svg>
                     </div>
                 </a>
-
+                <div id="NOTIFY464" class="ladi-element" style="display: none">
+                    <div class="ladi-notify ladi-hidden">
+                        <div class="ladi-notify-image">
+                            <img src="https://w.ladicdn.com/source/notify.svg?v=1.0" />
+                        </div>
+                        <div class="ladi-notify-title">Nội dung cột [Title]</div>
+                        <div class="ladi-notify-content">Nội dung cột [Content]</div>
+                        <div class="ladi-notify-time">Nội dung cột [Time]</div>
+                    </div>
+                </div>
                 <div id="HEADLINE1022" class="ladi-element">
                     <h3 class="ladi-headline">
-                      {!! $sessionOne->content !!}
+                        {!! $sessionOne->content !!}
                     </h3>
                 </div>
                 <div id="IMAGE1211" class="ladi-element">
@@ -69,7 +79,8 @@
                 </div>
                 <div id="IMAGE1223" class="ladi-element">
                     <div class="ladi-image">
-                        <div class="ladi-image-background" style="background-image: url({{showImage($sessionOne->logo)}})"></div>
+                        <div class="ladi-image-background"
+                            style="background-image: url({{ showImage($sessionOne->logo) }})"></div>
                     </div>
                 </div>
                 <div id="SHAPE617" class="ladi-element">
@@ -115,7 +126,8 @@
                 </div>
                 <div id="IMAGE1231" class="ladi-element">
                     <div class="ladi-image">
-                        <div class="ladi-image-background" style="background-image: url({{showImage($sessionOne->image)}})"></div>
+                        <div class="ladi-image-background"
+                            style="background-image: url({{ showImage($sessionOne->image) }})"></div>
                     </div>
                 </div>
                 <div id="BOX1016" class="ladi-element">
@@ -196,11 +208,11 @@
                     </h3>
                 </div>
                 <div id="HEADLINE1127" class="ladi-element">
-                    <h3 class="ladi-headline">{{$sessionOne->title}}</h3>
+                    <h3 class="ladi-headline">{{ $sessionOne->title }}</h3>
                 </div>
                 <div id="HEADLINE1128" class="ladi-element">
                     <h3 class="ladi-headline">
-                        {{$sessionOne->excerpt}}
+                        {{ $sessionOne->excerpt }}
                     </h3>
                 </div>
                 <div id="SHAPE637" class="ladi-element">
@@ -248,92 +260,47 @@
                 <div id="HEADLINE1038" class="ladi-element">
                     <h3 class="ladi-headline">
                         Vì sao nên chọn
-                        <span style="color: rgb(199, 15, 49)">Hàn Quốc</span>
+                        <span style="color: rgb(199, 15, 49)">{{ $sessionTwo->titles[0] }}</span>
                     </h3>
                 </div>
-                <div id="GROUP1210" class="ladi-element">
-                    <div class="ladi-group">
-                        <div id="GROUP1205" class="ladi-element">
-                            <div class="ladi-group">
-                                <div id="BOX987" class="ladi-element">
-                                    <div class="ladi-box ladi-transition"></div>
-                                </div>
-                                <div id="BOX986" class="ladi-element">
-                                    <div class="ladi-box ladi-transition"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="HEADLINE1098" class="ladi-element">
-                            <h3 class="ladi-headline">
-                                Văn hóa gần gũi, nhiều <br />học bổng và
-                                <span style="font-weight: bold; color: rgb(172, 6, 37)">tỉ lệ đỗ visa cao</span><br />
-                            </h3>
-                        </div>
-                    </div>
-                </div>
-                <div id="GROUP1211" class="ladi-element">
-                    <div class="ladi-group">
-                        <div id="GROUP1212" class="ladi-element">
-                            <div class="ladi-group">
-                                <div id="BOX996" class="ladi-element">
-                                    <div class="ladi-box ladi-transition"></div>
-                                </div>
-                                <div id="BOX997" class="ladi-element">
-                                    <div class="ladi-box ladi-transition"></div>
+
+                @php
+                    $id_1 = ['GROUP1210', 'GROUP1211', 'GROUP1213', 'GROUP1215'];
+                    $id_2 = ['GROUP1205', 'GROUP1212', 'GROUP1214', 'GROUP1216'];
+                    $id_3 = ['BOX987', 'BOX996', 'BOX998', 'BOX1000'];
+                    $id_4 = ['BOX986', 'BOX997', 'BOX999', 'BOX1001'];
+                    $id_5 = ['HEADLINE1098', 'HEADLINE1099', 'HEADLINE1100', 'HEADLINE1101'];
+                @endphp
+
+                @foreach ($sessionTwo->descriptions as $key => $description)
+                    <div id="{{ $id_1[$key] }}" class="ladi-element">
+                        <div class="ladi-group">
+                            <div id="{{ $id_2[$key] }}" class="ladi-element">
+                                <div class="ladi-group">
+                                    <div id="{{ $id_3[$key] }}" class="ladi-element">
+                                        <div class="ladi-box ladi-transition"></div>
+                                    </div>
+                                    <div id="{{ $id_4[$key] }}" class="ladi-element">
+                                        <div class="ladi-box ladi-transition"
+                                            style="background-image: url({{ showImage($sessionTwo->images[$key]) }})">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div id="HEADLINE1099" class="ladi-element">
-                            <h3 class="ladi-headline">
-                                Tham gia vào cộng đồng 350,000 người
-                                <span style="font-weight: bold"><span style="color: rgb(172, 6, 37)">làm việc, định
-                                        cư</span> </span>tại Hàn Quốc<br />
-                            </h3>
-                        </div>
-                    </div>
-                </div>
-                <div id="GROUP1213" class="ladi-element">
-                    <div class="ladi-group">
-                        <div id="GROUP1214" class="ladi-element">
-                            <div class="ladi-group">
-                                <div id="BOX998" class="ladi-element">
-                                    <div class="ladi-box ladi-transition"></div>
-                                </div>
-                                <div id="BOX999" class="ladi-element">
-                                    <div class="ladi-box ladi-transition"></div>
-                                </div>
+                            <div id="{{ $id_5[$key] }}" class="ladi-element">
+                                <h3 class="ladi-headline">
+                                    {!! $description !!}
+                                </h3>
                             </div>
                         </div>
-                        <div id="HEADLINE1100" class="ladi-element">
-                            <h3 class="ladi-headline">
-                                Vừa học vừa làm thêm, tự túc chi phí sinh hoạt với mức thu
-                                nhập lên đến
-                                <span style="font-weight: bold; color: rgb(172, 6, 37)">50tr/tháng</span><br />
-                            </h3>
-                        </div>
                     </div>
-                </div>
-                <div id="GROUP1215" class="ladi-element">
-                    <div class="ladi-group">
-                        <div id="GROUP1216" class="ladi-element">
-                            <div class="ladi-group">
-                                <div id="BOX1000" class="ladi-element">
-                                    <div class="ladi-box ladi-transition"></div>
-                                </div>
-                                <div id="BOX1001" class="ladi-element">
-                                    <div class="ladi-box ladi-transition"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="HEADLINE1101" class="ladi-element">
-                            <h3 class="ladi-headline">
-                                Tổng chi phí du học phù hợp với người Việt,
-                                <span style="font-weight: bold; color: rgb(172, 6, 37)">bằng quốc tế</span>, được công
-                                nhận rộng rãi<br />
-                            </h3>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
+
+
+
+
+
+
                 <div id="IMAGE1282" class="ladi-element">
                     <div class="ladi-image">
                         <div class="ladi-image-background"></div>
@@ -354,30 +321,20 @@
                         </div>
                         <div id="HEADLINE1156" class="ladi-element">
                             <h3 class="ladi-headline">
-                                <span style="color: rgb(199, 15, 49)">Hàn Quốc</span>
+                                <span style="color: rgb(199, 15, 49)">{{ $sessionTwo->titles[0] }}</span>
                             </h3>
                         </div>
                         <div id="HEADLINE1157" class="ladi-element">
-                            <h3 class="ladi-headline">Đức, Úc, Đài Loan, Nhật Bản</h3>
+                            <h3 class="ladi-headline">{{ $sessionTwo->titles[1] }}</h3>
                         </div>
                         <div id="HEADLINE1158" class="ladi-element">
                             <h3 class="ladi-headline">
-                                Thời gian đi nhanh, từ
-                                <span style="font-weight: bold">3 tháng</span>.<br /><br /><span
-                                    style="font-weight: bold">Không yêu cầu </span>chứng chỉ ngoại
-                                ngữ.<br /><br /><span style="font-weight: bold">Không giới hạn </span>số giờ làm thêm
-                                trong kỳ nghỉ.<br /><br />Cởi mở về
-                                <span style="font-weight: bold">định cư</span> và
-                                <span style="font-weight: bold">lao động dài hạn</span>, tỉ
-                                giá ngoại tệ ổn định.<br /><br />Giá vé may bay ở mức
-                                <span style="font-weight: bold">trung bình - rẻ</span>.<br />
+                                {!! $sessionTwo->contents[0] !!}
                             </h3>
                         </div>
                         <div id="HEADLINE1159" class="ladi-element">
                             <h3 class="ladi-headline">
-                                Thời gian lâu, lên đến 12 tháng.<br /><br />Yêu cầu chứng chỉ
-                                ngoại ngữ.<br /><br />Giới hạn số giờ làm thêm của học viên
-                                trong kỳ nghỉ.<br />
+                                {!! $sessionTwo->contents[1] !!}
                             </h3>
                         </div>
                         <div id="BOX1034" class="ladi-element">
@@ -403,14 +360,7 @@
                         <div class="ladi-image-background"></div>
                     </div>
                 </div>
-                <div id="HEADLINE1164" class="ladi-element">
-                    <h3 class="ladi-headline">
-                        Không cởi mở về định cư, lao động dài hạn hoặc không lợi về tỉ giá
-                        ngoại tệ.
-                        <br />
-                        <br />Giá vé may bay ở mức trung bình - cao.<br />
-                    </h3>
-                </div>
+
             </div>
         </div>
         <div id="SECTION475" class="ladi-section">
@@ -762,123 +712,32 @@
                     </div>
                 </div>
                 <div id="HEADLINE1115" class="ladi-element">
-                    <h3 class="ladi-headline">Cảm nhận học viên của Green</h3>
+                    <h3 class="ladi-headline">{{ $sessionSeven->title }}</h3>
                 </div>
                 <div id="CAROUSEL553" class="ladi-element">
                     <div class="ladi-carousel">
                         <div class="ladi-carousel-content">
-                            <div id="CAROUSEL_ITEM652" class="ladi-element">
-                                <div class="ladi-frame ladi-frame-bg ladi-transition">
-                                    <div class="ladi-frame-background"></div>
-                                    <div id="VIDEO486" class="ladi-element">
-                                        <div class="ladi-video">
-                                            <iframe width="100%" height="215"
-                                                src="https://www.youtube.com/embed/FT4tLpLgJuY?si=Sm6mm9ToOgOfEXvt"
-                                                title="YouTube video player" frameborder="0"
-                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                                referrerpolicy="strict-origin-when-cross-origin"
-                                                allowfullscreen></iframe>
 
 
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="CAROUSEL_ITEM653" class="ladi-element">
-                                <div class="ladi-frame ladi-frame-bg ladi-transition">
-                                    <div class="ladi-frame-background"></div>
-                                    <div id="VIDEO487" class="ladi-element">
-                                        <div class="ladi-video">
-                                            <div class="ladi-video-background"></div>
-                                            <div id="SHAPE487" class="ladi-element">
-                                                <div class="ladi-shape">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="100%"
-                                                        height="100%" preserveAspectRatio="none"
-                                                        viewBox="0 0 408.7 408.7" fill="rgba(0, 0, 0, 0.5)">
-                                                        <use xlink:href="#shape_vaoKSiuXWf"></use>
-                                                    </svg>
-                                                </div>
+                            @foreach ($sessionSeven->links as $index => $link)
+                                <div id="CAROUSEL_ITEM{{ $index }}" class="ladi-element" @style(['top: 0', 'left: ' . 588 * $index . 'px', 'width: 588px', 'height: 381.213px'])>
+                                    <div class="ladi-frame ladi-frame-bg ladi-transition">
+                                        <div class="ladi-frame-background"></div>
+                                        <div id="VIDEO486" class="ladi-element">
+                                            <div class="ladi-video">
+                                                <iframe width="100%" height="301"
+                                                    src="https://www.youtube.com/embed/{{getYouTubeVideoId($link)}}"
+                                                    title="YouTube video player" frameborder="0"
+                                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                                    referrerpolicy="strict-origin-when-cross-origin"
+                                                    allowfullscreen></iframe>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div id="CAROUSEL_ITEM654" class="ladi-element">
-                                <div class="ladi-frame ladi-frame-bg ladi-transition">
-                                    <div class="ladi-frame-background"></div>
-                                    <div id="VIDEO488" class="ladi-element">
-                                        <div class="ladi-video">
-                                            <div class="ladi-video-background"></div>
-                                            <div id="SHAPE488" class="ladi-element">
-                                                <div class="ladi-shape">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="100%"
-                                                        height="100%" preserveAspectRatio="none"
-                                                        viewBox="0 0 408.7 408.7" fill="rgba(0, 0, 0, 0.5)">
-                                                        <use xlink:href="#shape_vaoKSiuXWf"></use>
-                                                    </svg>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="CAROUSEL_ITEM655" class="ladi-element">
-                                <div class="ladi-frame ladi-frame-bg ladi-transition">
-                                    <div class="ladi-frame-background"></div>
-                                    <div id="VIDEO494" class="ladi-element">
-                                        <div class="ladi-video">
-                                            <div class="ladi-video-background"></div>
-                                            <div id="SHAPE494" class="ladi-element">
-                                                <div class="ladi-shape">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="100%"
-                                                        height="100%" preserveAspectRatio="none"
-                                                        viewBox="0 0 408.7 408.7" fill="rgba(0, 0, 0, 0.5)">
-                                                        <use xlink:href="#shape_vaoKSiuXWf"></use>
-                                                    </svg>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="CAROUSEL_ITEM554" class="ladi-element">
-                                <div class="ladi-frame ladi-frame-bg ladi-transition">
-                                    <div class="ladi-frame-background"></div>
-                                    <div id="VIDEO495" class="ladi-element">
-                                        <div class="ladi-video">
-                                            <div class="ladi-video-background"></div>
-                                            <div id="SHAPE495" class="ladi-element">
-                                                <div class="ladi-shape">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="100%"
-                                                        height="100%" preserveAspectRatio="none"
-                                                        viewBox="0 0 408.7 408.7" fill="rgba(0, 0, 0, 0.5)">
-                                                        <use xlink:href="#shape_vaoKSiuXWf"></use>
-                                                    </svg>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="CAROUSEL_ITEM555" class="ladi-element">
-                                <div class="ladi-frame ladi-frame-bg ladi-transition">
-                                    <div class="ladi-frame-background"></div>
-                                    <div id="VIDEO496" class="ladi-element">
-                                        <div class="ladi-video">
-                                            <div class="ladi-video-background"></div>
-                                            <div id="SHAPE496" class="ladi-element">
-                                                <div class="ladi-shape">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="100%"
-                                                        height="100%" preserveAspectRatio="none"
-                                                        viewBox="0 0 408.7 408.7" fill="rgba(0, 0, 0, 0.5)">
-                                                        <use xlink:href="#shape_vaoKSiuXWf"></use>
-                                                    </svg>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
+
+
                         </div>
                         <div class="ladi-carousel-arrow ladi-carousel-arrow-left opacity-0"></div>
                         <div class="ladi-carousel-arrow ladi-carousel-arrow-right opacity-0"></div>
@@ -1003,93 +862,28 @@
                 </div>
                 <div id="HEADLINE1130" class="ladi-element">
                     <h3 class="ladi-headline">
-                        Cơ sở vật chất theo tiêu chuẩn Hàn Quốc
+                        {{ $titleSix->title }}
                     </h3>
                 </div>
                 <div id="CAROUSEL567" class="ladi-element">
                     <div class="ladi-carousel">
                         <div class="ladi-carousel-content">
-                            <div id="CAROUSEL_ITEM696" class="ladi-element">
-                                <div class="ladi-frame ladi-frame-bg ladi-transition">
-                                    <div class="ladi-frame-background"></div>
-                                    <div id="IMAGE1309" class="ladi-element">
-                                        <div class="ladi-image">
-                                            <div class="ladi-image-background"></div>
+                            @foreach ($titleSix->images as $index => $item)
+                                <div id="CAROUSEL_ITEM{{ $item->id }}" @style(['top: 0', 'left: ' . 486 * $index . 'px', 'width: 486px', 'height: 311px']) class="ladi-element">
+                                    <div class="ladi-frame ladi-frame-bg ladi-transition">
+                                        <div class="ladi-frame-background"></div>
+                                        <div id="IMAGE1309" class="ladi-element">
+                                            <div class="ladi-image">
+                                                <div class="ladi-image-background"
+                                                    style="background-image: url('{{ showImage($item->image) }}');">
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div id="CAROUSEL_ITEM697" class="ladi-element">
-                                <div class="ladi-frame ladi-frame-bg ladi-transition">
-                                    <div class="ladi-frame-background"></div>
-                                    <div id="IMAGE1310" class="ladi-element">
-                                        <div class="ladi-image">
-                                            <div class="ladi-image-background"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="CAROUSEL_ITEM698" class="ladi-element">
-                                <div class="ladi-frame ladi-frame-bg ladi-transition">
-                                    <div class="ladi-frame-background"></div>
-                                    <div id="IMAGE1311" class="ladi-element">
-                                        <div class="ladi-image">
-                                            <div class="ladi-image-background"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="CAROUSEL_ITEM699" class="ladi-element">
-                                <div class="ladi-frame ladi-frame-bg ladi-transition">
-                                    <div class="ladi-frame-background"></div>
-                                    <div id="IMAGE1312" class="ladi-element">
-                                        <div class="ladi-image">
-                                            <div class="ladi-image-background"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="CAROUSEL_ITEM700" class="ladi-element">
-                                <div class="ladi-frame ladi-frame-bg ladi-transition">
-                                    <div class="ladi-frame-background"></div>
-                                    <div id="IMAGE1313" class="ladi-element">
-                                        <div class="ladi-image">
-                                            <div class="ladi-image-background"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="CAROUSEL_ITEM701" class="ladi-element">
-                                <div class="ladi-frame ladi-frame-bg ladi-transition">
-                                    <div class="ladi-frame-background"></div>
-                                    <div id="IMAGE1314" class="ladi-element">
-                                        <div class="ladi-image">
-                                            <div class="ladi-image-background"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="CAROUSEL_ITEM568" class="ladi-element">
-                                <div class="ladi-frame ladi-frame-bg ladi-transition">
-                                    <div class="ladi-frame-background"></div>
-                                    <div id="IMAGE1324" class="ladi-element">
-                                        <div class="ladi-image">
-                                            <div class="ladi-image-background"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="CAROUSEL_ITEM569" class="ladi-element">
-                                <div class="ladi-frame ladi-frame-bg ladi-transition">
-                                    <div class="ladi-frame-background"></div>
-                                    <div id="IMAGE1325" class="ladi-element">
-                                        <div class="ladi-image">
-                                            <div class="ladi-image-background"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
+
                         <div class="ladi-carousel-arrow ladi-carousel-arrow-left opacity-0"></div>
                         <div class="ladi-carousel-arrow ladi-carousel-arrow-right opacity-0"></div>
                     </div>
@@ -1554,7 +1348,7 @@
                 </div>
                 <div id="HEADLINE496" class="ladi-element">
                     <p class="ladi-headline ladi-transition">
-                        Website: {{ $branchs[0] ? $website[0] : ''}}
+                        Website: {{ $branchs[0] ? $website[0] : '' }}
                     </p>
                 </div>
                 <div id="SHAPE493" class="ladi-element">
@@ -1567,7 +1361,7 @@
                 </div>
                 <div id="HEADLINE497" class="ladi-element">
                     <p class="ladi-headline ladi-transition">
-                       {{ $branchs[1] ? $address[1] : '' }}
+                        {{ $branchs[1] ? $address[1] : '' }}
                     </p>
                 </div>
                 <div id="SHAPE432" class="ladi-element">
@@ -1587,7 +1381,7 @@
                     </div>
                 </div>
                 <div id="HEADLINE436" class="ladi-element">
-                    <p class="ladi-headline ladi-transition">Hotline: {{ $branchs[1] ? $hotline[1] : ''}}</p>
+                    <p class="ladi-headline ladi-transition">Hotline: {{ $branchs[1] ? $hotline[1] : '' }}</p>
                 </div>
                 <div id="SHAPE438" class="ladi-element">
                     <div class="ladi-shape ladi-transition">
@@ -1888,7 +1682,234 @@
         href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Exo:wght@400;700&family=Alfa+Slab+One&family=Arima:wght@400;700&family=Oswald:wght@400;700&family=Philosopher:wght@400;700&display=swap"
         rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
-    {{-- // --}}
+
+    <script src="{{ asset('frontend/js/ladipagev3.min.js') }}"></script>
+
+    <script id="script_event_data" type="application/json">
+        {
+          "SHAPE519": {
+            "a": "shape",
+            "cs": [
+              {
+                "dr": "action",
+                "dv": "_blank",
+                "dw": "https://m.me/168837822990209",
+                "a": "link"
+              }
+            ],
+            "cm": "Nhắn tin",
+            "cl": "16593014991",
+            "ck": "BpN5CKbTut0ZEM-hleg9",
+            "cj": "&#60;!-- Meta Pixel Code --&#62;\n&#60;script&#62;\n!function(f,b,e,v,n,t,s)\n&#123;if(f.fbq)return;n=f.fbq=function()&#123;n.callMethod?\nn.callMethod.apply(n,arguments):n.queue.push(arguments)&#125;;\nif(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version=&#39;2.0&#39;;\nn.queue=[];t=b.createElement(e);t.async=!0;\nt.src=v;s=b.getElementsByTagName(e)[0];\ns.parentNode.insertBefore(t,s)&#125;(window, document,&#39;script&#39;,\n&#39;https://connect.facebook.net/en_US/fbevents.js&#39;);\nfbq(&#39;init&#39;, &#39;1413421129331558&#39;);\nfbq(&#39;track&#39;, &#39;PageView&#39;);\n&#60;/script&#62;\n&#60;noscript&#62;&#60;img height=&#34;1&#34; width=&#34;1&#34; style=&#34;display:none&#34;\nsrc=&#34;https://www.facebook.com/tr?id=1413421129331558&#38;ev=PageView&#38;noscript=1&#34;\n/&#62;&#60;/noscript&#62;\n&#60;!-- Google tag (gtag.js) --&#62;\n&#60;script async=&#34;&#34; src=&#34;https://www.googletagmanager.com/gtag/js?id=G-KL54F33ZP9&#34;&#62;&#60;/script&#62;\n&#60;script&#62;\n  window.dataLayer = window.dataLayer || [];\n  function gtag()&#123;dataLayer.push(arguments);&#125;\n  gtag(&#39;js&#39;, new Date());\n\n  gtag(&#39;config&#39;, &#39;G-KL54F33ZP9&#39;);\n&#60;/script&#62;\n&#60;!-- End Meta Pixel Code --&#62;",
+            "aD": true,
+            "aA": "bottom_right",
+            "aw": "20px",
+            "at": "0px",
+            "aq": "20px",
+            "an": "10px",
+            "F": "pulse",
+            "C": "1s"
+          },
+          "NOTIFY464": {
+            "a": "notify",
+            "cv": "1DXaD7IgHaUUDnRjNi9Vm8Teln4e9BGwZUHDIrWaKW6w",
+            "cu": 4,
+            "ct": 4,
+            "aY": "default",
+            "j": "bottom_left"
+          },
+          "HEADLINE1065": {
+            "a": "headline",
+            "B": "0.5s",
+            "A": "1s",
+            "F": "fadeInDown"
+          },
+          "CAROUSEL545": {
+            "a": "carousel",
+            "cN": 2,
+            "cG": "type_abab",
+            "H": "960px",
+            "G": "420px",
+            "cM": "0px",
+            "cJ": "horizontal",
+            "R": true,
+            "O": 5,
+            "L": "1250px"
+          },
+          "IMAGE1211": { "a": "image", "E": "bounceInDown", "B": "1s" },
+          "IMAGE1227": { "a": "image", "E": "fadeInUp", "B": "1s" },
+          "IMAGE1228": { "a": "image", "E": "fadeInUp", "B": "1s" },
+          "IMAGE1229": { "a": "image", "E": "fadeInUp", "B": "1s" },
+          "IMAGE1230": { "a": "image", "E": "fadeInUp", "B": "1s" },
+          "BUTTON507": {
+            "a": "button",
+            "cs": [{ "dr": "action", "dw": "POPUP465", "a": "popup" }],
+            "F": "pulse",
+            "C": "1s"
+          },
+          "BUTTON508": { "a": "button", "F": "pulse", "C": "1s" },
+          "FORM_ITEM481": { "a": "form_item", "bS": "text", "bQ": 1 },
+          "FORM_ITEM482": { "a": "form_item", "bS": "email", "bQ": 2 },
+          "FORM_ITEM483": { "a": "form_item", "bS": "tel", "bQ": 3 },
+          "FORM_ITEM484": { "a": "form_item", "bS": "text", "bQ": 4 },
+          "FORM_ITEM485": { "a": "form_item", "bS": "textarea", "bQ": 5 },
+          "COUNTDOWN_ITEM480": { "a": "countdown_item", "bY": "day" },
+          "COUNTDOWN_ITEM481": { "a": "countdown_item", "bY": "hour" },
+          "COUNTDOWN_ITEM482": { "a": "countdown_item", "bY": "minute" },
+          "COUNTDOWN_ITEM483": { "a": "countdown_item", "bY": "seconds" },
+          "COUNTDOWN468": { "a": "countdown", "bX": "countdown", "bW": 4320 },
+          "CAROUSEL548": {
+            "a": "carousel",
+            "cN": 2,
+            "cG": "type_abab",
+            "H": "500px",
+            "G": "420px",
+            "cM": "0px",
+            "cJ": "horizontal",
+            "R": true,
+            "O": 5,
+            "L": "1250px"
+          },
+          "CAROUSEL553": {
+            "a": "carousel",
+            "cN": 2,
+            "cG": "type_abab",
+            "H": "588px",
+            "G": "420px",
+            "cM": "0px",
+            "cJ": "horizontal",
+            "O": 5,
+            "L": "1250px"
+          },
+          "CAROUSEL564": {
+            "a": "carousel",
+            "cN": 2,
+            "cG": "type_abab",
+            "cM": "0px",
+            "cJ": "horizontal",
+            "R": true,
+            "O": 5,
+            "L": "1250px",
+            "I": "420px"
+          },
+          "BUTTON510": {
+            "a": "button",
+            "cs": [{ "dr": "action", "dw": "SECTION-Form", "a": "section" }],
+            "F": "pulse",
+            "C": "1s"
+          },
+          "COUNTDOWN_ITEM471": { "a": "countdown_item", "bY": "seconds" },
+          "COUNTDOWN_ITEM470": { "a": "countdown_item", "bY": "minute" },
+          "COUNTDOWN_ITEM469": { "a": "countdown_item", "bY": "hour" },
+          "COUNTDOWN_ITEM468": { "a": "countdown_item", "bY": "day" },
+          "COUNTDOWN465": { "a": "countdown", "bX": "countdown", "bW": 4320 },
+          "FORM_ITEM475": { "a": "form_item", "bS": "textarea", "bQ": 5 },
+          "FORM_ITEM473": { "a": "form_item", "bS": "text", "bQ": 4 },
+          "FORM_ITEM472": { "a": "form_item", "bS": "tel", "bQ": 3 },
+          "FORM_ITEM471": { "a": "form_item", "bS": "email", "bQ": 2 },
+          "FORM_ITEM470": { "a": "form_item", "bS": "text", "bQ": 1 },
+          "BUTTON475": { "a": "button", "F": "pulse", "C": "1s" },
+          "POPUP465": {
+            "a": "popup",
+            "X": "default",
+            "U": "background-color: rgba(0, 0, 0, 0.5);"
+          },
+          "CAROUSEL567": {
+            "a": "carousel",
+            "cN": 2,
+            "cG": "type_abab",
+            "H": "486px",
+            "G": "420px",
+            "cM": "0px",
+            "cJ": "horizontal",
+            "R": true,
+            "O": 5,
+            "L": "1250px"
+          },
+          "FORM_ITEM490": { "a": "form_item", "bS": "textarea", "bQ": 5 },
+          "FORM_ITEM489": { "a": "form_item", "bS": "text", "bQ": 4 },
+          "FORM_ITEM488": { "a": "form_item", "bS": "tel", "bQ": 3 },
+          "FORM_ITEM487": { "a": "form_item", "bS": "email", "bQ": 2 },
+          "FORM_ITEM486": { "a": "form_item", "bS": "text", "bQ": 1 },
+          "BUTTON511": { "a": "button", "F": "pulse", "C": "1s" },
+          "FORM-dautrang": {
+            "option.dynamic_form_config": "&#123;&#34;configs&#34;:[],&#34;default_actions&#34;:[&#123;&#34;redirect_url&#34;:&#34;https://duhochanquoc.greenacademy.edu.vn/thankyou&#34;,&#34;type&#34;:&#34;form_redirect_url&#34;,&#34;no_delete&#34;:true&#125;]&#125;",
+            "a": "form",
+            "bP": "66eba32484a6cc00123be634",
+            "bM": true,
+            "bF": "Lead",
+            "bA": true,
+            "by": true,
+            "bx": true
+          },
+          "FORM-popup": {
+            "option.dynamic_form_config": "&#123;&#34;configs&#34;:[],&#34;default_actions&#34;:[&#123;&#34;redirect_url&#34;:&#34;https://duhochanquoc.greenacademy.edu.vn/thankyou&#34;,&#34;type&#34;:&#34;form_redirect_url&#34;,&#34;no_delete&#34;:true&#125;]&#125;",
+            "a": "form",
+            "bP": "66eba32484a6cc00123be634",
+            "bM": true,
+            "bF": "Lead",
+            "bA": true,
+            "by": true,
+            "bx": true
+          },
+          "FORM-cuoitrang": {
+            "option.dynamic_form_config": "&#123;&#34;configs&#34;:[],&#34;default_actions&#34;:[&#123;&#34;redirect_url&#34;:&#34;https://duhochanquoc.greenacademy.edu.vn/thankyou&#34;,&#34;type&#34;:&#34;form_redirect_url&#34;,&#34;no_delete&#34;:true&#125;]&#125;",
+            "a": "form",
+            "bP": "66eba32484a6cc00123be634",
+            "bM": true,
+            "bF": "Lead",
+            "bA": true,
+            "by": true,
+            "bx": true
+          }
+        }
+      </script>
+
+
+    <script id="script_ladipage_run" type="text/javascript">
+        (function() {
+            var run = function() {
+                if (
+                    typeof window.LadiPageScript == "undefined" ||
+                    typeof window.ladi == "undefined" ||
+                    window.ladi == undefined
+                ) {
+                    setTimeout(run, 100);
+                    return;
+                }
+                window.LadiPageApp = window.LadiPageApp || new window.LadiPageAppV2();
+                window.LadiPageScript.runtime.ladipage_id =
+                    "66e93c4ff905430012a69b7d";
+                window.LadiPageScript.runtime.publish_platform = "LADIPAGEDNS";
+                window.LadiPageScript.runtime.version = "1731296290230";
+                window.LadiPageScript.runtime.cdn_url =
+                    "https://w.ladicdn.com/v4/source/";
+                window.LadiPageScript.runtime.DOMAIN_SET_COOKIE = [
+                    "greenacademy.edu.vn",
+                ];
+                window.LadiPageScript.runtime.DOMAIN_FREE = [
+                    "preview.ldpdemo.com",
+                    "ldp.page",
+                ];
+                window.LadiPageScript.runtime.bodyFontSize = 12;
+                window.LadiPageScript.runtime.store_id = "5daeae0d3ec8da4ea405b05d";
+                window.LadiPageScript.runtime.time_zone = 7;
+                window.LadiPageScript.runtime.currency = "VND";
+                window.LadiPageScript.runtime.tracking_page = "@@tracking_page";
+                window.LadiPageScript.runtime.convert_replace_str = true;
+                window.LadiPageScript.runtime.desktop_width = 1200;
+                window.LadiPageScript.runtime.mobile_width = 420;
+                window.LadiPageScript.runtime.formdata = true;
+                window.LadiPageScript.runtime.tracking_button_click = true;
+                window.LadiPageScript.runtime.publish_time = 1731311716288;
+                window.LadiPageScript.runtime.lang = "vi";
+                window.LadiPageScript.run(true);
+                window.LadiPageScript.runEventScroll();
+            };
+            run();
+        })();
+    </script>
+
 </body>
 
 </html>

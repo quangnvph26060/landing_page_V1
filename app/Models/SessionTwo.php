@@ -10,9 +10,16 @@ class SessionTwo extends Model
     use HasFactory;
 
     protected $fillable = [
-        'title',
+        'titles',
         'contents',
+        'images',
+        'descriptions',
     ];
 
-    
+    protected $casts = [
+        'titles' => 'array',
+        'contents' => 'array',
+        'images' => 'array',
+        'descriptions' => 'array',
+    ];
 }

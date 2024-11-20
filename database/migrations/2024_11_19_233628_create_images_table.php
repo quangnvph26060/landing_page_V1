@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Title;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -11,12 +12,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('session_twos', function (Blueprint $table) {
+        Schema::create('images', function (Blueprint $table) {
             $table->id();
-            $table->text('titles')->nullable();
-            $table->text('contents')->nullable();
-            $table->text('images')->nullable();
-            $table->longText('descriptions')->nullable();
+            $table->foreignIdFor(Title::class)->constrained()->cascadeOnDelete();
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }
@@ -26,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('session_twos');
+        Schema::dropIfExists('images');
     }
 };

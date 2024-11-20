@@ -11,12 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('session_twos', function (Blueprint $table) {
+        Schema::create('session_sevens', function (Blueprint $table) {
             $table->id();
-            $table->text('titles')->nullable();
-            $table->text('contents')->nullable();
-            $table->text('images')->nullable();
-            $table->longText('descriptions')->nullable();
+            $table->string('title')->nullable();
+            $table->text('links')->nullable();
             $table->timestamps();
         });
     }
@@ -26,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('session_twos');
+        Schema::dropIfExists('session_sevens');
     }
 };

@@ -33,6 +33,8 @@ route::prefix('admin')->name('admin.')->group(function () {
             route::get("session/{value}", 'configSession')->name("session");
 
             route::post("session/{value}", 'postSession')->name("postSession");
+
+            route::post('upload/image/{session}', 'uploadImage')->name('uploadImage');
         });
     });
 

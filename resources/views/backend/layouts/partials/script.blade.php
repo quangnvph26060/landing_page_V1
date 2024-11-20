@@ -69,9 +69,9 @@
     })
 
     window.ckeditor = function(selector, height = 300) {
-        // Kiểm tra nếu CKEditor đã tồn tại cho selector
+
         if (CKEDITOR.instances[selector]) {
-            CKEDITOR.instances[selector].destroy(true); // Hủy CKEditor cũ
+            CKEDITOR.instances[selector].destroy(true);
         }
 
         // Khởi tạo CKEditor mới
