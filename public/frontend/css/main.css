@@ -5657,9 +5657,9 @@ body {
         height: 59.7386px;
     }
     #HEADLINE1022 {
-        width: 270px;
+        width: 300px;
         top: 149.014px;
-        left: 89.139px;
+        left: 79.139px;
     }
     #HEADLINE1022 > .ladi-headline {
         font-size: 16px;
@@ -5846,7 +5846,7 @@ body {
     }
     #HEADLINE1126 {
         width: 240px;
-        top: 326.278px;
+        top: 316.278px;
         left: 95.9615px;
     }
     #HEADLINE1126 > .ladi-headline {
@@ -5866,7 +5866,7 @@ body {
     }
     #HEADLINE1128 {
         width: 327px;
-        top: 90.117px;
+        top: 107.117px;
         left: 52.4615px;
     }
     #HEADLINE1128 > .ladi-headline,
@@ -7182,7 +7182,7 @@ body {
         background-image: url("https://w.ladicdn.com/s700x700/5daeae0d3ec8da4ea405b05d/bao-6-20240916082809-pvejm.png");
     }
     #SECTION-Form {
-        height: 696.759px;
+        height: 637.759px;
     }
     #SECTION-Form > .ladi-overlay {
         background-image: url("https://w.ladicdn.com/s700x1350/5daeae0d3ec8da4ea405b05d/bg-copy-20240726064029-y-zio.png");
@@ -7191,7 +7191,7 @@ body {
     }
     #BOX1002 {
         width: 420px;
-        height: 696.755px;
+        height: 625.755px;
         top: 0.0038px;
         left: 0px;
     }
@@ -7217,7 +7217,7 @@ body {
     #FORM-cuoitrang {
         width: 326.309px;
         height: 351.473px;
-        top: 312.202px;
+        top: 231.202px;
         left: 47.3228px;
     }
     #BUTTON508 {
@@ -7228,7 +7228,7 @@ body {
     }
     #BUTTON_TEXT508 {
         width: 324px;
-        top: 9.31835px;
+        top: 325px !important;
     }
     #FORM_ITEM481,
     #FORM_ITEM483 {
@@ -7261,8 +7261,8 @@ body {
     }
     #HEADLINE1104 {
         width: 334px;
-        top: 103.181px;
-        left: 61.9635px;
+        top: 116.181px;
+        left: 52.9635px;
     }
     #SHAPE623,
     #SHAPE624 {
@@ -7320,7 +7320,7 @@ body {
         color: rgb(255, 255, 255);
     }
     #HEADLINE1123 {
-        width: 119px;
+        width: 347px;
         top: 65.809px;
         left: 41.035px;
     }

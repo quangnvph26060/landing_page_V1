@@ -905,6 +905,15 @@
                                         </div>
                                     </div>
                                 </div>
+                                <style>
+                                    @media screen and (max-width: 768px) {
+                                        #CAROUSEL_ITEM{{ $image->id }} {
+                                            left: {{ 420 * $index }}px !important;
+                                            width: 420px;
+                                            height: 362px;
+                                        }
+                                    }
+                                    </style>
                             @endforeach
 
                         </div>
