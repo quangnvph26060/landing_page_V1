@@ -377,9 +377,10 @@
                 </div>
                 <div id="HEADLINE1028" class="ladi-element">
                     <h3 class="ladi-headline">
-                        <span style="color: rgb(4, 55, 119)">Vì sao</span>
+                        {{-- <span style="color: rgb(4, 55, 119)">Vì sao</span>
                         <span style="color: rgb(172, 6, 37)">Green Academy</span>&nbsp;<span
-                            style="color: rgb(4, 55, 119)">lại là lựa chọn tốt nhất?</span><br />
+                            style="color: rgb(4, 55, 119)">lại là lựa chọn tốt nhất?</span><br /> --}}
+                        {{ $sessionThree->title }}
                     </h3>
                 </div>
                 <div data-action="true" id="BUTTON507" class="ladi-element">
@@ -390,19 +391,22 @@
                         </div>
                     </div>
                 </div>
-                <div id="GROUP1220" class="ladi-element">
-                    <div class="ladi-group">
-                        <div id="BOX1004" class="ladi-element">
-                            <div class="ladi-box ladi-transition"></div>
-                        </div>
-                        <div id="HEADLINE1110" class="ladi-element">
-                            <h3 class="ladi-headline">
-                                Liên kết trực tiếp các trường Đại Học top đầu Hàn Quốc.<br />
-                            </h3>
+                @foreach ($sessionThree->contents as $index => $item)
+                    <div id="GROUP122{{ $index }}" class="ladi-element">
+                        <div class="ladi-group">
+                            <div id="BOX1004" class="ladi-element">
+                                <div class="ladi-box ladi-transition"></div>
+                            </div>
+                            <div id="HEADLINE1110" class="ladi-element">
+                                <h3 class="ladi-headline">
+                                    {{ $item }}<br />
+                                </h3>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div id="GROUP1222" class="ladi-element">
+                @endforeach
+
+                {{-- <div id="GROUP1222" class="ladi-element">
                     <div class="ladi-group">
                         <div id="BOX1007" class="ladi-element">
                             <div class="ladi-box ladi-transition"></div>
@@ -442,7 +446,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="GROUP1225" class="ladi-element">
+                <div id="GROUP1224" class="ladi-element">
                     <div class="ladi-group">
                         <div id="BOX1019" class="ladi-element">
                             <div class="ladi-box ladi-transition"></div>
@@ -455,7 +459,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="GROUP1224" class="ladi-element">
+                <div id="GROUP1225" class="ladi-element">
                     <div class="ladi-group">
                         <div id="BOX1017" class="ladi-element">
                             <div class="ladi-box ladi-transition"></div>
@@ -467,15 +471,20 @@
                             </h3>
                         </div>
                     </div>
-                </div>
+                </div> --}}
+
                 <div id="IMAGE1338" class="ladi-element">
                     <div class="ladi-image">
-                        <div class="ladi-image-background"></div>
+                        <div class="ladi-image-background"
+                            style="background-image: url({{ showImage($sessionThree->blocks[0]['image']) }});">
+                        </div>
                     </div>
                 </div>
                 <div id="IMAGE1339" class="ladi-element">
                     <div class="ladi-image">
-                        <div class="ladi-image-background"></div>
+                        <div class="ladi-image-background"
+                            style="background-image: url({{ showImage($sessionThree->blocks[1]['image']) }});">
+                        </div>
                     </div>
                 </div>
                 <div id="HEADLINE1163" class="ladi-element">
@@ -580,14 +589,15 @@
                 </div>
                 <div id="HEADLINE1138" class="ladi-element">
                     <h3 class="ladi-headline">
-                        Lộ trình du học Hàn Quốc tại
-                        <span style="color: rgb(4, 55, 119)">Green Academy</span>
+                        {!! $sessionFour->title !!}</span>
                     </h3>
                 </div>
-                <div id="HEADLINE1140" class="ladi-element">
-                    <h3 class="ladi-headline">Tư vấn<br />ký HĐ<br /></h3>
-                </div>
-                <div id="HEADLINE1141" class="ladi-element">
+                @foreach ($sessionFour->contents as $index => $item)
+                    <div id="HEADLINE114{{ $index }}" class="ladi-element">
+                        <h3 class="ladi-headline">{{ $item }}</h3>
+                    </div>
+                @endforeach
+                {{-- <div id="HEADLINE1141" class="ladi-element">
                     <h3 class="ladi-headline">Học<br />tiếng Hàn<br /></h3>
                 </div>
                 <div id="HEADLINE1142" class="ladi-element">
@@ -607,7 +617,7 @@
                 </div>
                 <div id="HEADLINE1147" class="ladi-element">
                     <h3 class="ladi-headline">Phỏng vấn trường<br /></h3>
-                </div>
+                </div> --}}
             </div>
         </div>
         <div id="SECTION485" class="ladi-section">
@@ -726,7 +736,7 @@
                                         <div id="VIDEO486" class="ladi-element">
                                             <div class="ladi-video">
                                                 <iframe width="100%" height="301"
-                                                    src="https://www.youtube.com/embed/{{getYouTubeVideoId($link)}}"
+                                                    src="https://www.youtube.com/embed/{{ getYouTubeVideoId($link) }}"
                                                     title="YouTube video player" frameborder="0"
                                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                                     referrerpolicy="strict-origin-when-cross-origin"

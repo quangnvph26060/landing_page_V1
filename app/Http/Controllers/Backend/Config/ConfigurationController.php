@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend\Config;
 use App\Models\{
     Config,
     Image,
+    SessionFour,
     SessionOne,
     SessionSeven,
     SessionTwo,
@@ -258,6 +259,35 @@ class ConfigurationController extends Controller
         $session = SessionThree::first();
         return view('backend.config.session-three', compact('title', 'session'));
     }
+    // public function postSessionThree($request)
+    // {
+    //     $rules = [
+    //         'title' => 'required|string|max:255',
+    //         'blocks' => 'required|array|max:2',
+    //         'blocks.*.description' => 'required|string',
+    //         'blocks.*.image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+    //         'contents' => 'required|array|max:6',
+    //         'contents.*' => 'required|string',
+    //     ];
+    //     $data = $request->validate($rules);
+    //     if (!empty($data['blocks'])) {
+    //         foreach ($data['blocks'] as $index => $block) {
+    //             if (isset($block['image'])) {
+    //                 foreach (SessionThree::first()->blocks as $block) {
+    //                     deleteImage($block['image']);
+    //                 }
+    //                 $data['blocks'][$index]['image'] = saveImages($request, "blocks.{$index}.image", 'session-three', 613, 860);
+    //             } else {
+    //                 foreach (SessionThree::first()->blocks as $block) {
+    //                     $data['blocks'][$index]['image'] = $block['image'];
+    //                 }
+    //             }
+    //         }
+    //     }
+    //     $sessionThree = SessionThree::first();
+    //     $sessionThree->update($data);
+    //     return response()->json(['status' => true, 'message' => 'Cập nhật thành công']);
+    // }
     public function postSessionThree($request)
     {
         $rules = [
@@ -268,23 +298,50 @@ class ConfigurationController extends Controller
             'contents' => 'required|array|max:6',
             'contents.*' => 'required|string',
         ];
+
         $data = $request->validate($rules);
+
+        $sessionThree = SessionThree::first();
+        $existingBlocks = $sessionThree->blocks ?? [];
+
         if (!empty($data['blocks'])) {
             foreach ($data['blocks'] as $index => $block) {
                 if (isset($block['image'])) {
-                    foreach (SessionThree::first()->blocks as $block) {
-                        deleteImage($block['image']);
+                    if (!empty($existingBlocks[$index]['image'])) {
+                        deleteImage($existingBlocks[$index]['image']);
                     }
                     $data['blocks'][$index]['image'] = saveImages($request, "blocks.{$index}.image", 'session-three', 613, 860);
                 } else {
-                    foreach (SessionThree::first()->blocks as $block) {
-                        $data['blocks'][$index]['image'] = $block['image'];
-                    }
+                    $data['blocks'][$index]['image'] = $existingBlocks[$index]['image'] ?? null;
                 }
             }
         }
-        $sessionThree = SessionThree::first();
+
         $sessionThree->update($data);
+
+        return response()->json(['status' => true, 'message' => 'Cập nhật thành công']);
+    }
+
+    public function sessionFour()
+    {
+        $title = 'Cấu hình session 4';
+        $session = SessionFour::first();
+        return view('backend.config.session-four', compact('title', 'session'));
+    }
+    public function postSessionFour($request)
+    {
+        $rules = [
+            'title' => 'required|string|max:255',
+            'contents' => 'required|array|max:8',
+            'contents.*' => 'required|string',
+        ];
+        $data = $request->validate($rules);
+        $sessionFour = SessionFour::first();
+        if (!$sessionFour) {
+            $sessionFour = new SessionFour();
+        }
+        $sessionFour->fill($data);
+        $sessionFour->save();
         return response()->json(['status' => true, 'message' => 'Cập nhật thành công']);
     }
 

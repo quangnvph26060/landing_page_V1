@@ -12,11 +12,9 @@
                         <h4 class="card-title">{{ ucwords($title) }}</h4>
                     </div>
                     <div class="card-body">
-                        <div class="form-group">
-                            <label for="title">Tiêu đề</label>
-                            <input type="text" name="title" id="title"
-                                value="{{ old('title', $session->title ?? '') }}" class="form-control">
-                            <small></small>
+                        <div class="form-group col-lg-12">
+                            <textarea name="title" id="title" class="ckeditor" cols="20" rows="5" placeholder="Nhập tiêu đề...">{{ old('title', $session->title ?? '') }}</textarea>
+                            <small id="err_title"></small>
                         </div>
                     </div>
                 </div>
@@ -24,41 +22,6 @@
         </div>
 
         <div class="row">
-            @for ($i = 0; $i < 2; $i++)
-                <div class="col-lg-6">
-                    <div class="card">
-                        <div class="card-header">
-                            <h4 class="card-title">Cấu hình block {{ $i + 1 }}</h4>
-                        </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-lg-12 mb-3">
-                                    <div class="form-group">
-                                        <input type="file" class="form-control" id="blocks[{{ $i }}][image]"
-                                            name="blocks[{{ $i }}][image]" />
-                                        <input type="hidden" name="oldImage[{{ $i }}]"
-                                            value="{{ $session->blocks[$i]['image'] ?? '' }}">
-                                        <small></small>
-                                        <img src="{{ showImage($session->blocks[$i]['image'] ?? '') }}" alt=""
-                                            width="100%" class="mt-3">
-                                    </div>
-                                </div>
-                                <div class="col-lg-12 mb-3">
-                                    <div class="form-group">
-                                        <label for="content" class="form-label">Nội dung</label>
-                                        <textarea class="form-control" id="content_{{ $i }}" name="blocks[{{ $i }}][description]"
-                                            placeholder="Mô tả" rows="5">{{ old("blocks.$i.description", $session->blocks[$i]['description'] ?? '') }}</textarea>
-                                        <small></small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            @endfor
-
-
-
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
@@ -66,11 +29,11 @@
                     </div>
                     <div class="card-body">
                         <div class="row">
-                            @for ($i = 0; $i < 6; $i++)
-                                <div class="form-group col-lg-4 mb-3">
+                            @for ($i = 0; $i < 8; $i++)
+                                <div class="form-group col-lg-3 mb-3">
                                     <textarea name="contents[{{ $i }}]" id="contents[{{ $i }}]" class="form-control" cols="30"
-                                        rows="10" placeholder="Nhập nột dung {{ $i+1 }}">{{ old("contents.$i", $session->contents[$i] ?? '') }}</textarea>
-                                    <small id="err_description_{{ $i }}"></small>
+                                        rows="10" placeholder="Thứ tự lộ trình {{ $i+1 }}">{{ old("contents.$i", $session->contents[$i] ?? '') }}</textarea>
+                                    <small id="err_contents_{{ $i }}"></small>
                                 </div>
                             @endfor
 

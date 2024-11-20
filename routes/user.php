@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\{
+    SessionFour,
     SessionOne,
     SessionTwo,
     Title,
@@ -24,6 +25,7 @@ Route::get('/', function () {
     $sessionOne  = SessionOne::first();
     $sessionTwo  = SessionTwo::first();
     $sessionThree = SessionThree::first();
+    $sessionFour = SessionFour::first();
     $titleSix = Title::where('type', 'six')->with([
         'images'
         => function ($query) {
@@ -39,6 +41,7 @@ Route::get('/', function () {
         'sessionOne',
         'sessionTwo',
         'sessionThree',
+        'sessionFour',
         'titleSix',
         'sessionSeven'
     ));
