@@ -323,7 +323,7 @@
                             <div class="ladi-box ladi-transition"></div>
                         </div>
                         <div id="HEADLINE1156" class="ladi-element">
-                            <h3 class="ladi-headline">
+                            <h3 class="ladi-headline" style="font-size: 14px">
                                 <span style="color: rgb(199, 15, 49)">{{ $sessionTwo->titles[0] }}</span>
                             </h3>
                         </div>
@@ -729,12 +729,7 @@
                         <div class="ladi-carousel-arrow ladi-carousel-arrow-right opacity-0"></div>
                     </div>
                 </div>
-                <div id="HEADLINE1119" class="ladi-element">
-                    <h3 class="ladi-headline">
-                        Du học sinh từ Green Academy đang học và làm việc lại
-                        <span style="font-weight: bold">Hàn Quốc</span><br />
-                    </h3>
-                </div>
+
                 <div id="HEADLINE1130" class="ladi-element">
                     <h3 class="ladi-headline">
                         {{ $titleSix->title }}
