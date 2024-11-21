@@ -81,11 +81,14 @@
                         <div class="ladi-image-background"></div>
                     </div>
                 </div>
-                <div id="IMAGE1223" class="ladi-element">
+                <div id="IMAGE1223" class="ladi-element" style="z-index: 2">
                     <div class="ladi-image">
                         <div class="ladi-image-background"
                             style="background-image: url({{ showImage($sessionOne->logo) }})"></div>
                     </div>
+                </div>
+                <div id="BOX567" class="ladi-element" style="top: 6px !important; z-index: -1">
+                    <div class="ladi-box ladi-transition"></div>
                 </div>
                 <div id="SHAPE617" class="ladi-element">
                     <div class="ladi-shape">

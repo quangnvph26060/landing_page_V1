@@ -1835,7 +1835,7 @@ a:link {
 }
 @media (max-width: 767px) {
     #HEADLINE1158 strong, #HEADLINE1159 strong{
-        font-size: 8px;
+        font-size: 7px;
     }
     .ladi-element.ladi-auto-scroll {
         overflow-x: auto;
@@ -5687,12 +5687,12 @@ body {
     }
     #IMAGE1223,
     #IMAGE1223 > .ladi-image > .ladi-image-background {
-        width: 120px;
-        height: 21.3174px;
+        width: 232px;
+        height: 30.3174px;
     }
     #IMAGE1223 {
-        top: 15.868px;
-        left: 151.033px;
+        top: 16.868px;
+        left: 93.033px;
     }
     #IMAGE1223 > .ladi-image > .ladi-image-background {
         background-image: url("https://w.ladicdn.com/s450x350/5daeae0d3ec8da4ea405b05d/logo-lp-20241031030414-w65pk.png");
@@ -5861,7 +5861,7 @@ body {
     }
     #HEADLINE1127 {
         width: 308px;
-        top: 48.1854px;
+        top: 65.1854px;
         left: 57.033px;
     }
     #HEADLINE1127 > .ladi-headline {
@@ -5871,7 +5871,7 @@ body {
     }
     #HEADLINE1128 {
         width: 327px;
-        top: 107.117px;
+        top: 118.117px;
         left: 52.4615px;
     }
     #HEADLINE1128 > .ladi-headline,
