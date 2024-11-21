@@ -1826,7 +1826,10 @@ a:link {
     height: 100vh !important;
 }
 @media (min-width: 768px) {
-    #FORM_ITEM489, #BUTTON_TEXT511, #FORM_ITEM484, #BUTTON_TEXT508{
+    #FORM_ITEM489,
+    #BUTTON_TEXT511,
+    #FORM_ITEM484,
+    #BUTTON_TEXT508 {
         left: 0 !important;
     }
     .ladi-carousel-fullwidth {
@@ -1837,10 +1840,11 @@ a:link {
     }
 }
 @media (max-width: 767px) {
-    #CAROUSEL567{
+    #CAROUSEL567 {
         left: 0 !important;
     }
-    #HEADLINE1158 strong, #HEADLINE1159 strong{
+    #HEADLINE1158 strong,
+    #HEADLINE1159 strong {
         font-size: 7px;
     }
     .ladi-element.ladi-auto-scroll {
@@ -4043,8 +4047,6 @@ body {
         width: 335px;
         top: 32.5px;
         left: 87.099px;
-
-
     }
     #HEADLINE1156 > .ladi-headline,
     #BUTTON_TEXT510 > .ladi-headline,
@@ -5806,7 +5808,8 @@ body {
     #BUTTON_TEXT511 {
         width: 321px;
     }
-    #FORM_ITEM484, #BUTTON_TEXT508 {
+    #FORM_ITEM484,
+    #BUTTON_TEXT508 {
         left: 1px !important;
     }
     #BUTTON_TEXT511,
@@ -5923,7 +5926,7 @@ body {
     #BOX1013 > .ladi-box {
         border-color: rgb(4, 52, 120);
     }
-    #HEADLINE1038 h3{
+    #HEADLINE1038 h3 {
         font-size: 16px !important;
     }
     #BOX1012 {
@@ -6360,14 +6363,12 @@ body {
         left: 62.6985px;
     }
     #IMAGE1338 > .ladi-image > .ladi-image-background {
-
     }
     #IMAGE1339 {
         top: 68.76px;
         left: 62.6975px;
     }
     #IMAGE1339 > .ladi-image > .ladi-image-background {
-
     }
     #HEADLINE1163 {
         width: 250px;
@@ -6398,7 +6399,8 @@ body {
         left: 78.001px;
     }
 
-    #HEADLINE1161 p span, #HEADLINE1162 p span {
+    #HEADLINE1161 p span,
+    #HEADLINE1162 p span {
         font-size: 11px !important;
     }
     #HEADLINE1161 > .ladi-headline,
@@ -7751,6 +7753,43 @@ h3 {
     #CAROUSEL553 iframe {
         height: 209px !important;
     }
+
+    .fixed-buttons {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        z-index: 1000;
+    }
+
+    .btn {
+        line-height: 20px;
+        flex: 1;
+        text-align: center;
+        padding: 5px 5px;
+        font-size: 14px;
+        color: #fff ! important;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    .btn span {
+        font-size: 12px;
+        display: block;
+    }
+
+    .btn-blue {
+        background-color: #0056b3; /* Màu xanh */
+    }
+
+    .btn-red {
+        background-color: #d0021b; /* Màu đỏ */
+    }
+
+    /* .btn-blue:hover,
+    .btn-red:hover {
+        opacity: 0.8;
+    } */
 }
-
-

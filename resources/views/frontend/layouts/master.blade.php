@@ -4,22 +4,21 @@
 <head>
     <meta charset="UTF-8" />
 
-    <title>{{$config->title_seo}}</title>
+    <title>{{ $config->title_seo }}</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="{{$config->description_seo}}">
-    <meta name="keywords" content="{{$config->keywords_seo}}">
+    <meta name="description" content="{{ $config->description_seo }}">
+    <meta name="keywords" content="{{ $config->keywords_seo }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <script src="{{ asset('frontend/js/custom.js') }}"></script>
 
 
-    <link rel="shortcut icon"
-        href="{{ showImage($config->favicon) }}" />
+    <link rel="shortcut icon" href="{{ showImage($config->favicon) }}" />
 
     <style>
         html,
@@ -383,7 +382,7 @@
                 </div>
                 <div id="HEADLINE1028" class="ladi-element">
                     <h3 class="ladi-headline">
-                            {!! $sessionThree->title  !!}
+                        {!! $sessionThree->title !!}
                     </h3>
                 </div>
                 <div data-action="true" id="BUTTON507" class="ladi-element">
@@ -525,7 +524,7 @@
                         hồ sơ tại Việt Nam (thấp hơn 15% so với các trung tâm khác)<br />-
                         Cam kết không thu cọc chống trốn (vi bằng)<br /> --}}
 
-                        {!!$sessionThree->blocks[0]['description'] !!}
+                        {!! $sessionThree->blocks[0]['description'] !!}
                     </h3>
                 </div>
                 <div id="SHAPE642" class="ladi-element">
@@ -538,7 +537,7 @@
                 </div>
                 <div id="HEADLINE1162" class="ladi-element">
                     <h3 class="ladi-headline">
-                        {!!$sessionThree->blocks[1]['description'] !!}
+                        {!! $sessionThree->blocks[1]['description'] !!}
                     </h3>
                 </div>
 
@@ -551,7 +550,7 @@
                         </div>
                         <div id="IMAGE1340" class="ladi-element">
                             <div class="ladi-image">
-                                <div class="ladi-image-background"  @style('background-image: url('. showImage($config->favicon).' )')></div>
+                                <div class="ladi-image-background" @style('background-image: url(' . showImage($config->favicon) . ' )')></div>
                             </div>
                             {{-- @style('background-image: url({{ showImage()}})" --}}
 
@@ -565,7 +564,7 @@
                         </div>
                         <div id="IMAGE1341" class="ladi-element">
                             <div class="ladi-image">
-                                <div class="ladi-image-background" @style('background-image: url('. showImage($config->favicon).' )')></div>
+                                <div class="ladi-image-background" @style('background-image: url(' . showImage($config->favicon) . ' )')></div>
                             </div>
                         </div>
                     </div>
@@ -725,7 +724,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                             @endforeach
                         </div>
                         <div class="ladi-carousel-arrow ladi-carousel-arrow-left opacity-0"></div>
@@ -786,7 +784,7 @@
                 </div>
                 <div id="HEADLINE1116" class="ladi-element">
                     <h3 class="ladi-headline">
-                       {{$sessionTen->title}}
+                        {{ $sessionTen->title }}
                     </h3>
                 </div>
                 <div id="HEADLINE1118" class="ladi-element">
@@ -916,7 +914,7 @@
                                             height: 362px;
                                         }
                                     }
-                                    </style>
+                                </style>
                             @endforeach
 
                         </div>
@@ -1232,8 +1230,7 @@
                                         <div class="ladi-overlay"></div>
                                     </div>
                                 </div>
-                                <div id="FORM-popup" data-config-id="66eba32484a6cc00123be634"
-                                    class="ladi-element">
+                                <div id="FORM-popup" data-config-id="66eba32484a6cc00123be634" class="ladi-element">
                                     <form autocomplete="off" method="post" class="ladi-form">
                                         <div id="BUTTON475" class="ladi-element">
                                             <div class="ladi-button">
@@ -1252,8 +1249,8 @@
                                             <div class="ladi-form-item-container">
                                                 <div class="ladi-form-item-background"></div>
                                                 <div class="ladi-form-item">
-                                                    <input autocomplete="off" tabindex="1" name="name"
-                                                        required class="ladi-form-control" type="text"
+                                                    <input autocomplete="off" tabindex="1" name="name" required
+                                                        class="ladi-form-control" type="text"
                                                         placeholder="Họ và tên" value="" />
                                                 </div>
                                             </div>
@@ -1262,9 +1259,9 @@
                                             <div class="ladi-form-item-container">
                                                 <div class="ladi-form-item-background"></div>
                                                 <div class="ladi-form-item">
-                                                    <input autocomplete="off" tabindex="2" name="email"
-                                                        required class="ladi-form-control" type="email"
-                                                        placeholder="Email" value="" />
+                                                    <input autocomplete="off" tabindex="2" name="email" required
+                                                        class="ladi-form-control" type="email" placeholder="Email"
+                                                        value="" />
                                                 </div>
                                             </div>
                                         </div>
@@ -1272,11 +1269,10 @@
                                             <div class="ladi-form-item-container">
                                                 <div class="ladi-form-item-background"></div>
                                                 <div class="ladi-form-item">
-                                                    <input autocomplete="off" tabindex="3" name="phone"
-                                                        required class="ladi-form-control" type="tel"
+                                                    <input autocomplete="off" tabindex="3" name="phone" required
+                                                        class="ladi-form-control" type="tel"
                                                         placeholder="Số điện thoại"
-                                                        pattern="(\+84|0){1}(9|8|7|5|3){1}[0-9]{8}"
-                                                        value="" />
+                                                        pattern="(\+84|0){1}(9|8|7|5|3){1}[0-9]{8}" value="" />
                                                 </div>
                                             </div>
                                         </div>
@@ -1284,8 +1280,8 @@
                                             <div class="ladi-form-item-container">
                                                 <div class="ladi-form-item-background"></div>
                                                 <div class="ladi-form-item">
-                                                    <input autocomplete="off" tabindex="4" name="address"
-                                                        required class="ladi-form-control" type="text"
+                                                    <input autocomplete="off" tabindex="4" name="address" required
+                                                        class="ladi-form-control" type="text"
                                                         placeholder="Nơi ở hiện tại" value="" />
                                                 </div>
                                             </div>
@@ -1396,6 +1392,15 @@
             </div>
         </div>
     </div>
+
+    <div class="fixed-buttons">
+        <a href="#SECTION-Form" class="btn btn-blue">NHẬN TƯ VẤN<br><span>Miễn phí</span></a>
+        <a href="tel:{{ $branchs[0] ? $hotline[0] : '' }}" class="btn btn-red">GỌI NGAY<br><span>Tư vấn miễn phí</span></a>
+        <a target="_blank" href="https://zalo.me/{{ $branchs[0] ? $hotline[0] : '' }}" class="btn btn-blue">NHẮN TIN ZALO<br><span>Bảo mật 100%</span></a>
+    </div>
+
+
+
     <div id="backdrop-popup" class="backdrop-popup"></div>
     <div id="backdrop-dropbox" class="backdrop-dropbox"></div>
     <div id="lightbox-screen" class="lightbox-screen"></div>
