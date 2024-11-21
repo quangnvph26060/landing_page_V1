@@ -9,7 +9,8 @@ use App\Models\{
     SessionSeven,
     SessionThree,
     SessionEight,
-    SessionNine
+    SessionNine,
+    SessionTen
 };
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -59,6 +60,8 @@ Route::get('/', function () {
             ->first();
     }
 
+    $sessionTen = SessionTen::find(1);
+
 
 
     return view('frontend.layouts.master', compact(
@@ -71,7 +74,8 @@ Route::get('/', function () {
         'sessionEight',
         'titleEight',
         'sessionNine',
-        'titles'
+        'titles',
+        'sessionTen'
     ));
 })->name('home');
 

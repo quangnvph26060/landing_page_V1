@@ -786,7 +786,7 @@
                 </div>
                 <div id="HEADLINE1116" class="ladi-element">
                     <h3 class="ladi-headline">
-                        Các trường đối tác nổi bật của Green tại Hàn và Việt Nam
+                       {{$sessionTen->title}}
                     </h3>
                 </div>
                 <div id="HEADLINE1118" class="ladi-element">

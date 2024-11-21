@@ -1826,6 +1826,9 @@ a:link {
     height: 100vh !important;
 }
 @media (min-width: 768px) {
+    #FORM_ITEM489, #BUTTON_TEXT511, #FORM_ITEM484, #BUTTON_TEXT508{
+        left: 0 !important;
+    }
     .ladi-carousel-fullwidth {
         width: 100vw !important;
         left: calc(-50vw + 50%) !important;
@@ -2544,7 +2547,7 @@ body {
 #FORM_ITEM484,
 #BUTTON_TEXT475,
 #FORM_ITEM473 {
-    left: -14px
+    left: -45px;
 }
 #BUTTON_TEXT511 > .ladi-headline,
 #BUTTON_TEXT508 > .ladi-headline {
@@ -5687,12 +5690,12 @@ body {
     }
     #IMAGE1223,
     #IMAGE1223 > .ladi-image > .ladi-image-background {
-        width: 232px;
-        height: 30.3174px;
+        width: 259px;
+        height: 35.3174px;
     }
     #IMAGE1223 {
         top: 16.868px;
-        left: 93.033px;
+        left: 77.033px;
     }
     #IMAGE1223 > .ladi-image > .ladi-image-background {
         background-image: url("https://w.ladicdn.com/s450x350/5daeae0d3ec8da4ea405b05d/logo-lp-20241031030414-w65pk.png");
@@ -5798,7 +5801,10 @@ body {
         left: 0px;
     }
     #BUTTON_TEXT511 {
-        width: 267px;
+        width: 321px;
+    }
+    #FORM_ITEM484, #BUTTON_TEXT508 {
+        left: 1px !important;
     }
     #BUTTON_TEXT511,
     #BUTTON_TEXT475 {
@@ -5816,38 +5822,38 @@ body {
     }
     #FORM_ITEM486,
     #FORM_ITEM488 {
-        width: 275.569px;
+        width: 321.569px;
         height: 38.4418px;
     }
     #FORM_ITEM486 {
-        left: -18.658886px;
+        left: -44.658886px;
     }
     #FORM_ITEM487 {
-        width: 273.006px;
-        height: 34.4418px;
+        width: 322.006px;
+        height: 38.4418px;
         top: 46.4691px;
-        left: -17.877398px;
+        left: -44.877398px;
     }
     #FORM_ITEM488 {
         top: 93.9381px;
-        left: -16.658886px;
+        left: -44.658886px;
     }
     #FORM_ITEM489 {
-        width: 269.251px;
-        height: 34.1069px;
+        width: 322.251px;
+        height: 38.1069px;
     }
     #FORM_ITEM489,
     #FORM_ITEM473 {
         top: 141.696px;
     }
     #FORM_ITEM490 {
-        width: 266.251px;
+        width: 320.251px;
         height: 71.1628px;
     }
     #FORM_ITEM490,
     #FORM_ITEM475 {
-        top: 186.119px;
-        left: -12px;
+        top: 189.119px;
+        left: -44px;
     }
     #HEADLINE1126 {
         width: 272px;

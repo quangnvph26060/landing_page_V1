@@ -13,7 +13,8 @@ use App\Models\{
     SessionThree,
     Title,
     SessionEight,
-    SessionNine
+    SessionNine,
+    SessionTen
 };
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -407,10 +408,10 @@ class ConfigurationController extends Controller
 
         if ($request->hasFile('file')) {
 
-            if($request->type == 'five_dots_one') {
+            if ($request->type == 'five_dots_one') {
                 $width = 1333;
                 $height = 750;
-            }else {
+            } else {
                 $width = 650;
                 $height = 867;
             }
@@ -652,6 +653,37 @@ class ConfigurationController extends Controller
         $credentials = $data->validated();
 
         SessionNine::updateOrCreate(['id' => 1], $credentials);
+
+        return response()->json(['status' => true, 'message' => 'Cập nhật thành công']);
+    }
+
+    public function SessionTen()
+    {
+        $title = 'Cấu hình session 10';
+        $session  = SessionTen::first();
+        return view('backend.config.session-ten', compact('title', 'session'));
+    }
+
+    public function postSessionTen($request)
+    {
+        $data = Validator::make(
+            $request->all(),
+            [
+                'title' => 'required',
+            ],
+            __('request.messages'),
+            [
+                'title' => 'Tiêu đề',
+            ]
+        );
+
+        if ($data->fails()) {
+            return response()->json(['errors' => $data->errors(), 'status' => false, 'message' => 'Dữ liệu không hợp lệ']);
+        }
+
+        $credentials = $data->validated();
+
+        SessionTen::updateOrCreate(['id' => 1], $credentials);
 
         return response()->json(['status' => true, 'message' => 'Cập nhật thành công']);
     }
