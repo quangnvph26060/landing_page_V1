@@ -667,7 +667,7 @@
                     </div>
                 </div>
                 <div id="HEADLINE1115" class="ladi-element">
-                    <h3 class="ladi-headline">{{ $sessionSeven->title }}</h3>
+                    <h3 class="ladi-headline" style="font-size: 18px;">{{ $sessionSeven->title }}</h3>
                 </div>
                 <div id="CAROUSEL553" class="ladi-element">
                     <div class="ladi-carousel">
