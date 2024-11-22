@@ -1,5 +1,6 @@
 <?php
 
+use App\Mail\SenMailNotification;
 use App\Models\{
     Contact,
     SessionFour,
@@ -15,6 +16,7 @@ use App\Models\{
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 /*
@@ -77,6 +79,7 @@ Route::get('/', function () {
         'titles',
         'sessionTen'
     ));
+
 })->name('home');
 
 Route::post('/', function (Request $request) {
@@ -117,7 +120,7 @@ Route::post('/', function (Request $request) {
         ]);
     }
 
-    Contact::updateOrCreate(
+    $contact = Contact::updateOrCreate(
         ['phone' => $validator->validated()['phone']],
         [
             'name' => $validator->validated()['name'] ?? null,
@@ -127,6 +130,10 @@ Route::post('/', function (Request $request) {
             'created_at' => Carbon::now(),
         ]
     );
+
+    $email = config('mail.to');
+
+    Mail::to($email)->send(new SenMailNotification($contact));
 
 
     return response()->json(['status' => true, 'message' => 'Chúng tôi sẽ liện hệ với bạn trong thời gian sắp tới.']);

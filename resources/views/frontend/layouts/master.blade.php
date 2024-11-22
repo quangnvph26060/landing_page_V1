@@ -208,8 +208,7 @@
                 </div>
                 <div id="HEADLINE1126" class="ladi-element">
                     <h3 class="ladi-headline">
-                        Để lại thông tin nhận<br /><span style="font-size: 24px; font-weight: bold">HỌC
-                            BỔNG</span>&nbsp;lên đến <span style="font-weight: bold">800 triệu</span>
+                            {!! $sessionOne->title_form !!}
                     </h3>
                 </div>
                 <div id="HEADLINE1127" class="ladi-element">
@@ -887,7 +886,7 @@
                         </div>
                     </div>
                 @endforeach
-               
+
             </div>
         </div>
         <div id="SECTION-Form" class="ladi-section">
