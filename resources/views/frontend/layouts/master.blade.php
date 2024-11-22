@@ -208,7 +208,7 @@
                 </div>
                 <div id="HEADLINE1126" class="ladi-element">
                     <h3 class="ladi-headline">
-                            {!! $sessionOne->title_form !!}
+                        {!! $sessionOne->title_form !!}
                     </h3>
                 </div>
                 <div id="HEADLINE1127" class="ladi-element">
@@ -589,32 +589,33 @@
                         {!! $sessionFour->title !!}</span>
                     </h3>
                 </div>
-                @foreach ($sessionFour->contents as $index => $item)
-                    <div id="HEADLINE114{{ $index }}" class="ladi-element">
-                        <h3 class="ladi-headline">{{ $item }}</h3>
-                    </div>
-                @endforeach
-                {{-- <div id="HEADLINE1141" class="ladi-element">
-                    <h3 class="ladi-headline">Học<br />tiếng Hàn<br /></h3>
+
+                <div id="HEADLINE1140" class="ladi-element">
+                    <h3 class="ladi-headline">{{ $sessionFour->contents[0] }}</h3>
+                </div>
+
+                <div id="HEADLINE1141" class="ladi-element">
+                    <h3 class="ladi-headline">{{ $sessionFour->contents[1] }}</h3>
                 </div>
                 <div id="HEADLINE1142" class="ladi-element">
-                    <h3 class="ladi-headline">Nhận Visa<br /></h3>
+                    <h3 class="ladi-headline">{{ $sessionFour->contents[6] }}</h3>
                 </div>
+                {{-- 111 --}}
                 <div id="HEADLINE1143" class="ladi-element">
-                    <h3 class="ladi-headline">Đăng ký trường</h3>
+                    <h3 class="ladi-headline">{{ $sessionFour->contents[2] }}</h3>
                 </div>
                 <div id="HEADLINE1144" class="ladi-element">
-                    <h3 class="ladi-headline">Nhận INVOICE<br /></h3>
+                    <h3 class="ladi-headline">{{ $sessionFour->contents[4] }}</h3>
                 </div>
                 <div id="HEADLINE1145" class="ladi-element">
-                    <h3 class="ladi-headline">Xuất cảnh, nhập học<br /></h3>
+                    <h3 class="ladi-headline">{{ $sessionFour->contents[7] }}</h3>
                 </div>
                 <div id="HEADLINE1146" class="ladi-element">
-                    <h3 class="ladi-headline">Nhận thư mời, Code<br /></h3>
+                    <h3 class="ladi-headline">{{ $sessionFour->contents[5] }}</h3>
                 </div>
                 <div id="HEADLINE1147" class="ladi-element">
-                    <h3 class="ladi-headline">Phỏng vấn trường<br /></h3>
-                </div> --}}
+                    <h3 class="ladi-headline">{{ $sessionFour->contents[3] }}</h3>
+                </div>
             </div>
         </div>
         <div id="SECTION485" class="ladi-section">
@@ -1361,7 +1362,8 @@
     <div class="fixed-buttons">
         <a href="#SECTION-Form" class="btn btn-blue">NHẬN TƯ VẤN<br><span>Miễn phí</span></a>
         <a href="tel:{{ $config->phone }}" class="btn btn-red">GỌI NGAY<br><span>Tư vấn miễn phí</span></a>
-        <a target="_blank" href="https://zalo.me/{{ $config->phone }}" class="btn btn-blue">NHẮN TIN ZALO<br><span>Bảo mật 100%</span></a>
+        <a target="_blank" href="https://zalo.me/{{ $config->phone }}" class="btn btn-blue">NHẮN TIN
+            ZALO<br><span>Bảo mật 100%</span></a>
     </div>
 
 
