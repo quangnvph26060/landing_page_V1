@@ -27,7 +27,7 @@ class SenMailNotification extends Mailable implements ShouldQueue
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Send Mail Notification',
+            subject: 'KHÁCH HÀNG ĐĂNG KÝ MỚI',
         );
     }
 

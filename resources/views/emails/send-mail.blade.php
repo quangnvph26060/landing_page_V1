@@ -61,21 +61,15 @@
 <body>
     <div class="email-container">
         <div class="email-header">
-            New User Submission Received
+        Khách hàng đăng ký
         </div>
         <div class="email-body">
-            <h3>Hello Admin,</h3>
-            <p>You have received a new submission from a user. Here are the details:</p>
-            <p><span class="field">Name:</span> {{ $data->name }}</p>
+            <p><span class="field">Tên khách hàng:</span> {{ $data->name }}</p>
             <p><span class="field">Email:</span> {{ $data->email }}</p>
-            <p><span class="field">Phone:</span> {{ $data->phone }}</p>
-            <p><span class="field">Address:</span> {{ $data->address }}</p>
-            <p><span class="field">Note:</span> {{ $data->note }}</p>
-            <p><span class="field">Submitted At:</span> {{ \Carbon\Carbon::parse($data->created_at)->format('d M, Y h:i A') }}</p>
-        </div>
-        <div class="email-footer">
-            <p>For further details, please log in to your admin dashboard.</p>
-            <p>Need help? Contact us at <a href="mailto:support@example.com">support@example.com</a>.</p>
+            <p><span class="field">Số điện thoại:</span> {{ $data->phone }}</p>
+            <p><span class="field">Địa chỉ:</span> {{ $data->address }}</p>
+            <p><span class="field">Ghi chú:</span> {{ $data->note }}</p>
+            <p><span class="field">Thời gian:</span> {{ \Carbon\Carbon::parse($data->created_at)->format('d M, Y h:i A') }}</p>
         </div>
     </div>
 </body>
