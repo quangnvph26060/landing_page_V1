@@ -887,41 +887,7 @@
                         </div>
                     </div>
                 @endforeach
-                <div id="CAROUSEL545" class="ladi-element">
-                    <div class="ladi-carousel">
-                        <div class="ladi-carousel-content">
-
-
-
-                            @foreach ($titleEight->images as $index => $image)
-                                <div id="CAROUSEL_ITEM{{ $image->id }}" class="ladi-element" @style(['top: 0', 'left: ' . 960 * $index . 'px', 'width: 960px', 'height: 822px'])>
-                                    <div class="ladi-frame ladi-frame-bg ladi-transition">
-                                        <div class="ladi-frame-background"></div>
-                                        <div id="IMAGE1204" class="ladi-element">
-                                            <div class="ladi-image">
-                                                <div class="ladi-image-background"
-                                                    style="background-image: url('{{ showImage($image->image) }}');">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <style>
-                                    @media screen and (max-width: 768px) {
-                                        #CAROUSEL_ITEM{{ $image->id }} {
-                                            left: {{ 420 * $index }}px !important;
-                                            width: 420px;
-                                            height: 362px;
-                                        }
-                                    }
-                                </style>
-                            @endforeach
-
-                        </div>
-                        <div class="ladi-carousel-arrow ladi-carousel-arrow-left opacity-0"></div>
-                        <div class="ladi-carousel-arrow ladi-carousel-arrow-right opacity-0"></div>
-                    </div>
-                </div>
+               
             </div>
         </div>
         <div id="SECTION-Form" class="ladi-section">
