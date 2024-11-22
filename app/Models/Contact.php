@@ -14,6 +14,7 @@ class Contact extends Model
         'email',
         'phone',
         'address',
-        'note'
+        'note',
+        'created_at'
     ];
 }

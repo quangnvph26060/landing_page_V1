@@ -79,7 +79,6 @@ Route::get('/', function () {
         'titles',
         'sessionTen'
     ));
-
 })->name('home');
 
 Route::post('/', function (Request $request) {
@@ -108,7 +107,10 @@ Route::post('/', function (Request $request) {
     }
 
     // Kiểm tra nếu số điện thoại đã gửi liên hệ trong vòng 5 phút trước
-    $recentContact = Contact::where('phone', $validator->validated()['phone'])
+    $recentContact = Contact::where([
+        'phone' => $validator->validated()['phone'],
+        'email' => $validator->validated()['email'],
+    ])
         ->where('created_at', '>=', Carbon::now()->subMinutes(5))
         ->first();
 
