@@ -34,6 +34,7 @@ class ConfigurationController extends Controller
         $data = Validator::make(
             $request->all(),
             [
+                'phone' => ['required', 'regex:/^0[0-9]{9}$/'],
                 'logo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
                 'favicon' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 
@@ -54,6 +55,7 @@ class ConfigurationController extends Controller
             ],
             __('request.messages'),
             [
+                'phone' => 'Số điện thoại',
                 'logo' => 'Logo',
                 'favicon' => 'Favicon',
 

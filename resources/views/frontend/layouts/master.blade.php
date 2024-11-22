@@ -1395,8 +1395,8 @@
 
     <div class="fixed-buttons">
         <a href="#SECTION-Form" class="btn btn-blue">NHẬN TƯ VẤN<br><span>Miễn phí</span></a>
-        <a href="tel:{{ $branchs[0] ? $hotline[0] : '' }}" class="btn btn-red">GỌI NGAY<br><span>Tư vấn miễn phí</span></a>
-        <a target="_blank" href="https://zalo.me/{{ $branchs[0] ? $hotline[0] : '' }}" class="btn btn-blue">NHẮN TIN ZALO<br><span>Bảo mật 100%</span></a>
+        <a href="tel:{{ $config->phone }}" class="btn btn-red">GỌI NGAY<br><span>Tư vấn miễn phí</span></a>
+        <a target="_blank" href="https://zalo.me/{{ $config->phone }}" class="btn btn-blue">NHẮN TIN ZALO<br><span>Bảo mật 100%</span></a>
     </div>
 
 

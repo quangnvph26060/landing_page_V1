@@ -23,6 +23,15 @@
                         <div class="row">
                             <div class="col-lg-12 mb-3">
                                 <div class="form-group">
+                                    <label for="phone" class="form-label">Số điện thoại</label>
+                                    <input type="text" class="form-control " id="phone" name="phone"
+                                        placeholder="Số điện thoại liên hệ" value="{{ $config->phone }}" />
+                                    <small></small>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12 mb-3">
+                                <div class="form-group">
                                     <label for="title_seo" class="form-label">Tiêu đề</label>
                                     <input type="text" class="form-control " id="title_seo" name="title_seo"
                                         placeholder="Tiêu đề" value="{{ $config->title_seo }}" />

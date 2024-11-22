@@ -10,6 +10,7 @@ class Config extends Model
     use HasFactory;
 
     protected $fillable = [
+        'phone',
         'logo',
         'favicon',
 
