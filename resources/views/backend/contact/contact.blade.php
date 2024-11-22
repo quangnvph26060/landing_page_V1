@@ -7,8 +7,15 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header d-flex align-items-center justify-content-between">
                     <h5 class="card-title mb-0">{{ ucwords($title) }}</h5>
+                    <form action="" method="post" style="width: 300px" id="email-form">
+                        <div class="input-group d-flex">
+                            <input type="text" name="email" id="email" value="{{ env('MAIL_TO') }}"
+                                placeholder="Nhập email nhận thông báo" class="form-control">
+                            <button type="submit" class="btn btn-primary btn-sm">Lưu</button>
+                        </div>
+                    </form>
                 </div>
                 <div class="card-body">
                     <table id="alternative-pagination"
@@ -31,7 +38,9 @@
                                     <td>{{ $item->email }}</td>
                                     <td>{{ $item->phone }}</td>
                                     <td>{{ $item->address }}</td>
-                                    <td>{{ \Carbon\Carbon::parse($item->created_at)->format('d-m-Y H:i') }} ({{\Carbon\Carbon::parse($item->created_at)->locale('vi')->diffForHumans()}})</td>
+                                    <td>{{ \Carbon\Carbon::parse($item->created_at)->format('d-m-Y H:i') }}
+                                        ({{ \Carbon\Carbon::parse($item->created_at)->locale('vi')->diffForHumans() }})
+                                    </td>
                                 </tr>
                             @endforeach
 
@@ -45,16 +54,16 @@
 @endsection
 
 @push('styles')
+    <link rel="stylesheet" href="{{ asset('backend/assets/libs/toastify-js/src/toastify.css') }}">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css" />
     <!--datatable responsive css-->
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap.min.css" />
 
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
-
-
 @endpush
 
 @push('scripts')
+    <script src="{{ asset('backend/assets/libs/toastify-js/src/toastify.js') }}"></script>
     <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
@@ -63,4 +72,29 @@
     <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
     <script src="{{ asset('backend/assets/js/pages/datatables.init.js') }}"></script>
 
+    <script>
+        $('#email-form').submit(function(e) {
+            e.preventDefault();
+            var email = $('#email').val();
+            $.ajax({
+                url: $(this).attr('action'),
+                type: 'POST',
+                data: {
+                    _token: '{{ csrf_token() }}',
+                    email
+                },
+                success: function(response) {
+                    if (response.status) {
+
+                        toastSuccess(response.message)
+                    } else {
+                        toastError(response.message)
+                    }
+                },
+                error: function(error) {
+                    toastError(response.message)
+                }
+            })
+        });
+    </script>
 @endpush
