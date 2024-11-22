@@ -10,11 +10,13 @@ use Illuminate\Support\Facades\Validator;
 
 class DashboardController extends Controller
 {
-    public function dashboard(){
+    public function dashboard()
+    {
         return view('backend.dashboard');
     }
 
-    public function contact(){
+    public function contact()
+    {
         $title = 'Yêu cầu liên hệ';
         $contacts = Contact::latest()->get();
         return view('backend.contact.contact', compact('title', 'contacts'));
@@ -42,5 +44,17 @@ class DashboardController extends Controller
 
         return response()->json(['status' => true, 'message' => 'Cập nhật thành công']);
     }
-}
 
+    public function deleteContact(string $id)
+    {
+        $contact = Contact::find($id);
+
+        if (!$contact) {
+            return response()->json(['status' => false, 'message' => 'Không tìm thấy']);
+        }
+
+        $contact->delete();
+
+        return response()->json(['status' => true, 'message' => 'Xóa thành công']);
+    }
+}

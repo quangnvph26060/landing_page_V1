@@ -28,6 +28,7 @@ route::prefix('admin')->name('admin.')->group(function () {
 
         route::get('contact', [DashboardController::class, 'contact'])->name('contact');
         route::post('contact', [DashboardController::class, 'UpdateEmail']);
+        route::delete('contact/{id}', [DashboardController::class, 'deleteContact'])->name('contact.destroy');
 
         route::prefix('configuration')->controller('App\Http\Controllers\Backend\Config\ConfigurationController')->name('configuration.')->group(function () {
             route::get('/', 'configuration');
